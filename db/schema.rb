@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20180423214037) do
     t.integer "cost"
     t.string "purpose"
     t.text "description"
-    t.text "state"
+    t.text "state", default: "pending"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
