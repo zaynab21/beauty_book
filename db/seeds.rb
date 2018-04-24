@@ -5,3 +5,21 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+# db/seeds.rb
+puts 'Cleaning database...'
+Recipe.destroy_all
+User.destroy_all
+Moderator.destroy_all
+
+puts 'Creating users...'
+hamid = User.create!(username: 'hamid', email: 'hamiddu93@yahoo.fr', password:"password")
+hamida = User.create!(username: 'hamida', email: 'hamidadu93@yahoo.fr', password:"password")
+
+puts 'Creating moderators...'
+mode1 = Moderator.create!(password: 'hamidou', email: 'bossdu95@yahoo.fr' )
+
+puts 'Creating recipes...'
+Recipe.create!(user_id: hamid.id,title: "Masque à l'orange", effect: 'nourishing', purpose:'dry hair', difficulty: 3, cost: 20, description: "nice shit")
+Recipe.create!(user_id: hamid.id, title: 'Cataplasme au citron', effect: 'moisturizing', purpose: 'normal skin', difficulty: 3, cost: 14, description: "very nice shit")
+Recipe.create!(user_id: hamida.id, title: 'Coloration au hénné',  effect: 'Anti-aging',   purpose: 'oily skin', difficulty: 2, cost: 6, description: "put the henna on the bowl")
+puts 'Finished!'
