@@ -8,6 +8,23 @@ class RecipesController < ApplicationController
   def show
   end
 
+  def new
+    @recipe = Recipe.new
+  end
+
+  def create
+    @recipe = Recipe.new(recipe_params)
+    @recipe.user = current_user
+    if @recipe.save
+      redirect_to recipes_path
+      flash[:success] = " you succeeded"
+    else
+      flash[:alert] =  @recipe.errors.full_messages
+
+      render :new
+    end
+  end
+
   private
 
   def set_recipe
@@ -15,6 +32,6 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:title, :state, :effect, :difficulty )
+    params.require(:recipe).permit(:title, :state, :effect, :difficulty, :description, :cost, :purpose, tag_ids: [] )
   end
 end

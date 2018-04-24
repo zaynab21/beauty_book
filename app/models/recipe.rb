@@ -8,8 +8,8 @@ class Recipe < ApplicationRecord
   #default value
   validates :effect, presence: true
   # validates :time, presence: true
-  validates :difficulty, presence: true
-  validates :cost, presence: true
+  validates :difficulty, presence: true, numericality: { only_integer: true }
+  validates :cost, presence: true, numericality: { only_integer: true }
   validates :purpose, presence: true
   #inclusion
   validates :description, presence: true
