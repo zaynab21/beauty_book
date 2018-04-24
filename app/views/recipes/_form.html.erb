@@ -1,0 +1,10 @@
+<%= simple_form_for @recipe do |f| %>
+<%= f.input :title %>
+<%= f.input :effect %>
+<%= f.input :difficulty, collection: [1, 2, 3] %>
+<%= f.input :cost %>
+<%= f.input :purpose %>
+<%= f.input :description %>
+<%= f.input :tag_ids, as: :check_boxes, collection:  Tag.all, label_method: :name, value_method: :id %>
+<%= f.button :submit, class: "btn btn-success" %>
+<% end %>
