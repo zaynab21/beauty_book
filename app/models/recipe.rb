@@ -1,6 +1,7 @@
 class Recipe < ApplicationRecord
   belongs_to :user
-  has_many :tags
+  has_many :tag_recipes, dependent: :destroy
+  has_many :tags, through: :tag_recipes
   validates_associated :tags
   validates :title, presence: true
   validates :state, presence:true
