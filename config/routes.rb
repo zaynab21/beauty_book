@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :moderators
-  devise_for :users
+  devise_for :moderators, path: 'moderators'
+  devise_for :users,  path: 'users'
   root to: 'pages#home'
-
-  resources :recipes
+  resources :recipes, only: [:index, :show, :new, :create, :edit, :update]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  namespace :admin do
+    resources :recipes
+  end
 end
