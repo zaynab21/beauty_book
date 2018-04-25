@@ -2,7 +2,11 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
   def index
-    @recipes = Recipe.all
+    if params[:query].present?
+      @recipes = Recipe.global_search(params[:query])
+    else
+      @recipes = Recipe.all
+    end
   end
 
   def show
@@ -17,10 +21,9 @@ class RecipesController < ApplicationController
     @recipe.user = current_user
     if @recipe.save
       redirect_to recipes_path # new_moderator_recipe_path #needs to go to moderator controller
-      flash[:success] = " Your preparation was successfully submitted"
+      flash[:success] = " Your preparation was successfully submitted "
     else
       flash[:alert] =  @recipe.errors.full_messages
-
       render :new
     end
   end
