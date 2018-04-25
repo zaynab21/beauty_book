@@ -1,0 +1,7 @@
+<div class="col-sm-offset-3 col-sm-off" >
+<%= simple_form_for @tag, url: moderators_tag_path(@tag) do |f| %>
+
+<%= f.input :name %>
+<%= f.button :submit, class: "btn btn-success" %>
+<% end %>
+</div>

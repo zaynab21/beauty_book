@@ -1,1 +1,20 @@
 <h2> Your pending preparation</h2>
+<div class="container">
+  <div class="row col-sm-offset-3 col-sm-off">
+
+<%= simple_form_for @recipe, url: moderators_recipe_path(@recipe) do |f| %>
+
+<%= f.input :title %>
+<%= f.input :effect %>
+<%= f.input :difficulty, collection: [1, 2, 3] %>
+<%= f.input :cost %>
+<%= f.input :purpose %>
+<%= f.input :description %>
+<%= f.input :tag_ids, as: :check_boxes, collection:  Tag.all, label_method: :name, value_method: :id %>
+<%= f.submit 'publish', class: "btn btn-success" %>
+<%= f.submit 'decline', class: "btn btn-danger" %>
+<%= f.submit 'keep pending', class: "btn btn-primary" %>
+<% end %>
+</div>
+</div>
+
