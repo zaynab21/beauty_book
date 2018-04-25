@@ -2,7 +2,11 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
   def index
-    @recipes = Recipe.all
+    if params[:query].present?
+      @recipes = Recipe.global_search(params[:query])
+    else
+      @recipes = Recipe.all
+    end
   end
 
   def show
@@ -16,11 +20,11 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
     if @recipe.save
+      flash[:success] = "your recipe will be reviewed within 24hours"
       redirect_to recipes_path
-      flash[:success] = " you succeeded"
+
     else
       flash[:alert] =  @recipe.errors.full_messages
-
       render :new
     end
   end
