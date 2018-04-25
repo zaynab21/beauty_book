@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :moderators do
     resources :recipes
-    resources :tag,  only: [:new, :create, :edit, :update]
+    resources :tags,  only: [:new, :create, :edit, :update]
   end
 end
