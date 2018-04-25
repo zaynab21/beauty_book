@@ -10,6 +10,7 @@
     class: "form-control",
     placeholder: "Find a recipe"
   %>
+  <% end %>
 </div>
 
   <!-- Right Navigation -->
@@ -61,11 +62,5 @@
       </ul>
     </div>
   </div>
-</div>
-<div>
-    <%= check_box_tag(:cost, :cheap) %>
-    <%= label_tag :cost, "Bon marché"  %>
-    <%= submit_tag("filter", class: "btn btn-success") %>
-<% end %>
 </div>
 

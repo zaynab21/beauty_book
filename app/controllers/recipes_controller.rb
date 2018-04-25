@@ -7,7 +7,8 @@ class RecipesController < ApplicationController
     else
       @recipes = Recipe.all
     end
-    @recipes = @recipes.where(" cost < ?", 50) if params[:cost] == "cheap"
+    @recipes = @recipes.order(cost: :desc) if params[:cost] == "desc"
+    @recipes = @recipes.order(cost: :asc) if params[:cost] =="asc"
   end
 
   def show
