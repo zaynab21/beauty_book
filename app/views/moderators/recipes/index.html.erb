@@ -1,0 +1,41 @@
+<h2> Moderatr dashboard </h2>
+<div class="container">
+  <div class="row">
+    <div class="container-recipe">
+    <h1 class="text-center"> Pending preparations</h1>
+    <% @recipes.each do |recipe| %>
+      <div class="col-xs-12">
+        <div class="card-recipe">
+          <div class="row">
+            <div class="col-xs-5">
+            <h1>**PHOTO HERE***</h1>
+          </div>
+        <div class="col-xs-offset-1 col-xs-6">
+          <div class="card-body">
+            <h2><%= recipe.title %></h2>
+            <h3><%= recipe.cost %></h3>
+            <h3><%= recipe.purpose %></h3>
+            <h3><%= recipe.difficulty %></h3>
+            <h3><%= @tags.first.name%></h3>
+          </div>
+          <%= link_to "Review preparation", edit_moderators_recipe_path(recipe), class: "btn" %>
+        </div>
+      </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+    <div class="container-tags">
+      <h1 class="text-center">Tags</h1>
+      <div class="col-xs-offset-1 col-xs-6">
+          <div class="card-tags">
+          <div class="row">
+          <% @tags.each do |tag| %>
+          <h3><%= tag.name %></h3>
+          </div>
+      </div>
+      <% end %>
+    </div>
+    </div>
+</div>
+</div>
