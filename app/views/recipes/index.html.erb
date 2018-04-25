@@ -1,19 +1,37 @@
+<div class="container-filters">
+  <div class="row">
+    <%= form_tag recipes_path, method: :get do %>
+    <div class="col-sm-4">
+    <%= check_box_tag(:cost, :desc) %>
+    <%= label_tag :cost, "Price desc"  %>
+    </div>
+    <div class="col-sm-4">
+    <%= check_box_tag(:cost, :asc) %>
+    <%= label_tag :cost, "Price asc"  %>
+    </div>
+      <%= submit_tag("filter", class: "btn btn-success", id: "search-filter") %>
+    <% end %>
+  </div>
+</div>
+
 <div class="container-recipe">
+
    <div class="row">
+    <button class="fat btn btn-warning text-right"> add filters</button>
     <h1 class="text-center">Recipes</h1>
     <% @recipes.each do |recipe| %>
     <div class="col-xs-12">
       <div class="card-recipe">
         <%= link_to "", recipe_path(recipe), class: "card-link" %>
         <div class="row">
-          <div class="col-xs-4">
+          <div class="col-xs-12 col-sm-6 col-md-4">
             <h1>**PHOTO HERE***</h1>
           </div>
-        <div class= "col-xs-5">
+        <div class= "col-xs-12 col-sm-6 col-md-5">
           <div class="card-body">
             <h2><%= recipe.title %></h2>
             <hr>
-            <h3><%= recipe.cost %></h3>
+            <h3>$<%= recipe.cost %></h3>
             <h3><%= recipe.purpose %></h3>
             <h3><%= recipe.difficulty %></h3>
           </div>
