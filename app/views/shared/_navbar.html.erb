@@ -3,13 +3,14 @@
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "logo.png", height: 50 %>
   <% end %>
+  <div>
   <%= form_tag recipes_path, method: :get do %>
   <%= text_field_tag :query,
     params[:query],
     class: "form-control",
     placeholder: "Find a recipe"
   %>
-<% end %>
+</div>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
@@ -60,5 +61,11 @@
       </ul>
     </div>
   </div>
+</div>
+<div>
+    <%= check_box_tag(:cost, :cheap) %>
+    <%= label_tag :cost, "Bon marché"  %>
+    <%= submit_tag("filter", class: "btn btn-success") %>
+<% end %>
 </div>
 

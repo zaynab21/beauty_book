@@ -17,19 +17,31 @@
   border-radius: 3px;
 }
 .card-recipe{
-  border: 1px solid rgba(0,0,0,0.4);
   margin-bottom: 20px;
   padding: 30px;
   height: 250px;
   background: white;
   h2 {
-    color: #004080;
+    color: black;
+    font-weight: 600;
+    font-size: 25px;
   }
   h3 {
-    color: green;
+    color: #004080;
     font-size: 15px;
   }
 }
 .card-recipe:hover {
-  border: 3px solid #004080;
+  h2 {
+    color: orange;
+  }
+}
+hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
 }

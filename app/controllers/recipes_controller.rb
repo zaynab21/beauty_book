@@ -7,6 +7,7 @@ class RecipesController < ApplicationController
     else
       @recipes = Recipe.all
     end
+    @recipes = @recipes.where(" cost < ?", 50) if params[:cost] == "cheap"
   end
 
   def show
