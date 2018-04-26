@@ -1,5 +1,7 @@
 class Recipe < ApplicationRecord
   include PgSearch
+  has_many :recipe_photos
+  accepts_nested_attributes_for :recipe_photos
   belongs_to :user
   has_many :tag_recipes, dependent: :destroy
   has_many :tags, through: :tag_recipes

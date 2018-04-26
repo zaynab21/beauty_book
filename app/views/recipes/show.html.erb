@@ -15,8 +15,10 @@
               <p>time</p>
             </div>
           </div>
-          <div class="recipe-illustration col-xs-12 col-sm-5">
-            <h4>***IMAGE HERE***</h4>
+          <div class="recipe-illustration">
+            <% @recipe.recipe_photos.each do |recipe_photo| %>
+            <%= cl_image_tag recipe_photo.photo, height: 300, width: 400, crop: :fill %>
+            <% end %>
             <p><%= @recipe.purpose %></p>
           </div>
         </div>
