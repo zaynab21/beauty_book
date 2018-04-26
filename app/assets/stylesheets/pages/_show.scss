@@ -1,0 +1,24 @@
+
+.recipe-title {
+  text-align: center;
+  margin: 1rem 0 .75rem;
+  font-size: 30px;
+  font-size: 1.375rem;
+  line-height: 28px;
+  font-weight: 250px;
+}
+
+.list-inline {
+  padding: 8px;
+  margin: 5px;
+  background-color: lightgrey;
+  .li {
+    padding: 55px 20px;
+  }
+}
+
+.recipe-summary {
+  margin-top: 10px;
+  padding-top: 15px;
+}
+
