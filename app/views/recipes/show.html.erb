@@ -16,10 +16,19 @@
             </div>
           </div>
           <div class="recipe-illustration">
+            <div class="slideshow-container">
             <% @recipe.recipe_photos.each do |recipe_photo| %>
+            <div class="mySlides fade">
             <%= cl_image_tag recipe_photo.photo, height: 300, width: 400, crop: :fill %>
+            <div class="text"><%= @recipe.purpose %></div>
+            </div>
+            <div style="text-align:center">
+              <span class="dot" onclick="currentSlide(1)"></span>
+              <span class="dot" onclick="currentSlide(2)"></span>
+              <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
             <% end %>
-            <p><%= @recipe.purpose %></p>
+            </div>
           </div>
         </div>
       </div>
