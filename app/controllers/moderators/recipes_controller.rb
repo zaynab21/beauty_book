@@ -11,6 +11,11 @@ before_action :set_recipe, only: [:new, :create, :edit, :update, :destroy]
 
   def update
     @recipe.update(recipe_params)
+    if params['button_action'] == 'Publish'
+      @recipe.update(state: "published")
+    elsif params['button_action'] == 'Decline'
+      @recipe.update(state: "declined")
+    end
     redirect_to moderators_recipes_path
   end
 

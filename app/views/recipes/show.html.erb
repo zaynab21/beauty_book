@@ -1,15 +1,31 @@
+
 <div class="container">
-  <h1><%= @recipe.title %></h1>
-  <br>
-  <div class="row">
-    <div class="col-xs-12 col-sm-8">
-      <h1>***IMAGE HERE***</h1>
-    </div>
-    <div class="col-xs-12 col-sm-4">
-      <h2><%= @recipe.difficulty %></h2>
-      <h2><%= @recipe.cost %></h2>
-      <p><%= @recipe.purpose %></p>
-      <p><%= @recipe.description %></p>
-    </div>
+  <div class="container-content ">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8">
+        <div class="recipe-summary">
+          <div class="recipe-attributes col-xs-12 col-sm-4">
+            <h1 class="recipe-title"><%= @recipe.title %></h1>
+            <br>
+            <div class="">Ratings</div>
+            <div class="general-info">
+            <h2><%= @recipe.difficulty %></h2>
+            <h2><%= @recipe.cost %></h2>
+            <h2>time</h2>
+            </div>
+          </div>
+          <div class="recipe-illustration">
+            <h1>***IMAGE HERE***</h1>
+            <p><%= @recipe.purpose %></p>
+          </div>
+        </div>
+        <div class="user-actions list-inline">
+          <p>save</p>
+          <p>rate</p>
+          <p>share</p>
+          <p>pin</p>
+        </div>
+      <!-- <p><%= @recipe.description %></p> -->
+  </div>
   </div>
 </div>
