@@ -3,12 +3,14 @@ class RecipesController < ApplicationController
 
   def index
     if params[:query].present?
-      @recipes = Recipe.global_search(params[:query])
+      @recipes = Recipe.global_search(params[:query]).where(state: "published")
     else
-      @recipes = Recipe.all
+      @recipes = Recipe.all.where(state: "published")
     end
     @recipes = @recipes.order(cost: :desc) if params[:cost] == "desc"
     @recipes = @recipes.order(cost: :asc) if params[:cost] =="asc"
+    @recipes = @recipes.order(difficulty: :desc) if params[:cost] == "diff_desc"
+    @recipes = @recipes.order(difficulty: :asc) if params[:cost] =="diff_asc"
   end
 
   def show
