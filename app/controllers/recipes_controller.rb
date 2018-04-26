@@ -7,10 +7,10 @@ class RecipesController < ApplicationController
     else
       @recipes = Recipe.all.where(state: "published")
     end
-    @recipes = @recipes.order(cost: :desc) if params[:cost] == "desc"
-    @recipes = @recipes.order(cost: :asc) if params[:cost] =="asc"
-    @recipes = @recipes.order(difficulty: :desc) if params[:cost] == "diff_desc"
-    @recipes = @recipes.order(difficulty: :asc) if params[:cost] =="diff_asc"
+    @recipes = @recipes.order(cost: :desc) if params[:sort] == "desc"
+    @recipes = @recipes.order(cost: :asc) if params[:sort] =="asc"
+    @recipes = @recipes.order(difficulty: :desc) if params[:sort] == "diff_desc"
+    @recipes = @recipes.order(difficulty: :asc) if params[:sort] =="diff_asc"
   end
 
   def show
@@ -18,6 +18,8 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    @recipe.recipe_photos.build
+    @recipe.recipe_photos.build
   end
 
   def create
@@ -39,6 +41,6 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:title, :state, :effect, :difficulty, :description, :cost, :purpose, tag_ids: [] )
+    params.require(:recipe).permit(:title, :state, :effect, :difficulty, :description, :cost, :purpose, tag_ids: [], recipe_photos_attributes: [:photo] )
   end
 end

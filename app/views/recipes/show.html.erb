@@ -15,7 +15,9 @@
             </div>
           </div>
           <div class="recipe-illustration">
-            <h1>***IMAGE HERE***</h1>
+            <% @recipe.recipe_photos.each do |recipe_photo| %>
+            <%= cl_image_tag recipe_photo.photo, height: 300, width: 400, crop: :fill %>
+            <% end %>
             <p><%= @recipe.purpose %></p>
           </div>
         </div>

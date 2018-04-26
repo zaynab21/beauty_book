@@ -10,6 +10,9 @@
 <%= f.input :purpose %>
 <%= f.input :description %>
 <%= f.input :tag_ids, as: :check_boxes, collection:  Tag.all, label_method: :name, value_method: :id %>
+<%= f.simple_fields_for :recipe_photos do |p| %>
+  <%= p.input :photo %>
+  <% end %>
 <%= f.button :submit, class: "btn btn-success" %>
 <% end %>
 </div>

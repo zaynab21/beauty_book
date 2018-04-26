@@ -2,22 +2,22 @@
   <div class="row">
     <%= form_tag recipes_path, method: :get do %>
     <div class="col-sm-4">
-    <%= check_box_tag(:cost, :desc) %>
-    <%= label_tag :cost, "Price desc"  %>
+    <%= radio_button_tag(:sort, :desc) %>
+    <%= label_tag :sort, "Price desc"  %>
     </div>
     <div class="col-sm-4">
-    <%= check_box_tag(:cost, :asc) %>
-    <%= label_tag :cost, "Price asc"  %>
+    <%= radio_button_tag(:sort, :asc) %>
+    <%= label_tag :sort, "Price asc"  %>
     </div>
     <div class="col-sm-4">
-    <%= check_box_tag(:cost, :diff_asc) %>
-    <%= label_tag :cost, "By simplicity"  %>
+    <%= radio_button_tag(:sort, :diff_asc) %>
+    <%= label_tag :sort, "By simplicity"  %>
     </div>
     <div class="col-sm-4">
-    <%= check_box_tag(:cost, :diff_desc) %>
-    <%= label_tag :cost, "By difficulty"  %>
+    <%= radio_button_tag(:sort, :diff_desc) %>
+    <%= label_tag :sort, "By difficulty"  %>
     </div>
-      <%= submit_tag("filter", class: "btn btn-success", id: "search-filter") %>
+      <%= submit_tag("Sort", class: "btn btn-success", id: "search-filter") %>
     <% end %>
   </div>
 </div>
@@ -25,7 +25,7 @@
 <div class="container-recipe">
 
    <div class="row">
-    <button class="fat btn btn-warning text-right"> add filters</button>
+    <button class="fat btn btn-warning text-right">Sort results</button>
     <h1 class="text-center">Recipes</h1>
     <% @recipes.each do |recipe| %>
     <div class="col-xs-12">
@@ -33,15 +33,18 @@
         <%= link_to "", recipe_path(recipe), class: "card-link" %>
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-4">
-            <h1>**PHOTO HERE***</h1>
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+  <div class="card-category"><%= recipe.purpose %></div>
+  <div class="card-description">
+    <p>$<%= recipe.cost %></p>
+  </div>
+</div>
           </div>
         <div class= "col-xs-12 col-sm-6 col-md-5">
           <div class="card-body">
             <h2><%= recipe.title %></h2>
-            <hr>
-            <h3>$<%= recipe.cost %></h3>
-            <h3><%= recipe.purpose %></h3>
-            <h3><%= recipe.difficulty %></h3>
+            <hr
+            <p><%= recipe.description %></p>
           </div>
         </div>
       </div>
