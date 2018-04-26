@@ -9,6 +9,14 @@
     <%= check_box_tag(:cost, :asc) %>
     <%= label_tag :cost, "Price asc"  %>
     </div>
+    <div class="col-sm-4">
+    <%= check_box_tag(:cost, :diff_asc) %>
+    <%= label_tag :cost, "By simplicity"  %>
+    </div>
+    <div class="col-sm-4">
+    <%= check_box_tag(:cost, :diff_desc) %>
+    <%= label_tag :cost, "By difficulty"  %>
+    </div>
       <%= submit_tag("filter", class: "btn btn-success", id: "search-filter") %>
     <% end %>
   </div>
