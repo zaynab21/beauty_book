@@ -1,6 +1,6 @@
 
 import "bootstrap";
-import { initUpdateNavbarOnScroll } from '/components/navbar';
+import { initUpdateNavbarOnScroll } from '../components/navbar';
 initUpdateNavbarOnScroll();
 
 const fat = document.querySelector(".fat");
