@@ -46,14 +46,4 @@
   </div>
 </div>
 
-<div class="link">
-<% if moderator_signed_in? %>
-  <%= link_to destroy_user_session_path, method: :delete do %>
-  <%= t(".sign_out", default: "Log out as a moderator") %>
-  <% end %>
-  <%= link_to "Dashboard", moderators_recipes_path %>
-<% else %>
-  <%= link_to t(".sign_in", default: "Login "), new_moderator_session_path, class: "danger-btn" %>
-<% end %>
-</div>
 
