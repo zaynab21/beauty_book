@@ -1,14 +1,13 @@
 .container-content {
   margin-top: 70px;
-
+  //#32B796
 }
-
 
 .recipe-title {
   text-align: center;
   margin: 1rem 0 .75rem;
   // font-size: 50px;
-  font-size: 2.375rem;
+  font-size: 2.775rem;
   line-height: 28px;
   font-weight: bolder;
   font-style: courier;
@@ -20,7 +19,9 @@
   background-color: lightgrey;
     li {
       padding: 0px 40px ;
-      margin: 0px 20px;
+      margin: 0px 38px;
+      color: white;
+      font-weight: 350px;
     }
 }
 
@@ -38,7 +39,7 @@
   border: 2px solid #efefef;
   color: #8a98b1;
   display: inline;
-  padding: 2px 4px;
+  padding: 2px 6px;
   font-size: 1.2571rem;
   font-weight: 600;
 }
@@ -54,8 +55,9 @@
 
 .general-info {
   padding-left: 15px;
+  margin-left: 30px;
   li {
-      padding: 5px 10px ;
+      padding: 15px 15px ;
       margin: 5px 20px;
     }
 }
@@ -64,4 +66,12 @@
   padding : 10px;
   border-radius: 8px;
   background-color: orange;
+}
+
+.yellow {
+  color: orange;
+}
+
+.grey {
+  color: lightgrey;
 }

@@ -11,9 +11,16 @@
             <div class="general-info">
               <ul class="list-inline infos">
                 <li id="effect"><%= @recipe.effect %></li>
-                <li id="dificulty"><%= @recipe.difficulty %></li>
-                <li id="cost"><%= @recipe.cost %></li>
-                  <% 3.times do |i| %>
+                <li id="dificulty"><Difficulty></li>
+                  <% 3.times do |i|  %>
+                  <% if i < @recipe.difficulty %>
+                    <i class="fa fa-eyedropper yellow"></i>
+                  <% else %>
+                    <i class="fa fa-eyedropper gray"></i>
+                  <% end %>
+                  <% end %>
+                <li id="cost"><Cost></li>
+                  <% 3.times do |i|  %>
                   <% if i < @recipe.cost %>
                     <i class="fa fa-money yellow"></i>
                   <% else %>
@@ -21,8 +28,12 @@
                   <% end %>
                   <% end %>
               </ul>
-              <p id="preparation">Preparation time</p>
-              <p id="application">Application time</p>
+              <div class=" time">
+                <ul class="list-inline">
+                  <li>Preparation time</li>
+                  <li>Application time</li>
+                </ul>
+              </div>
             </div>
 
           </div>
