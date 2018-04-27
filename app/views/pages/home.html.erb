@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/berlin');">
+<div class="banner" >
   <div class="banner-content">
     <%= form_tag recipes_path, class: "form-inline", method: :get do %>
       <%= text_field_tag :query,
@@ -8,6 +8,39 @@
     %>
     <%= submit_tag("Search", class: "btn btn-success", id: "search") %>
     <% end %>
+  </div>
+</div>
+
+<div class="wrapper-grey padded">
+  <div class="container">
+  </br>
+    <h2 class="text-center">Discover our selections</h2>
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <div class="card" style="background: url();">
+          <div class="card-category">xxx</div>
+          <div class="card-description">
+            <h3>For dry hair</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card" style="background: url();">
+          <div class="card-category">-</div>
+          <div class="card-description">
+            <h3>Falling hair</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card" style="background: url();">
+          <div class="card-category">-</div>
+          <div class="card-description">
+            <h3>Oily skin</h3>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -21,3 +54,4 @@
   <%= link_to t(".sign_in", default: "Login "), new_moderator_session_path, class: "danger-btn" %>
 <% end %>
 </div>
+
