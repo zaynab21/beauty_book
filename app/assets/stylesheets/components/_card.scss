@@ -81,3 +81,27 @@ hr {
     border-style: inset;
     border-width: 1px;
 }
+.card-pending {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  padding: 30px;
+  height: 50px;
+  background: white;
+  h2 {
+    color: black;
+    font-weight: 600;
+    font-size: 25px;
+  }
+  h3 {
+    color: #004080;
+    font-size: 15px;
+  }
+}
+.card-pending:hover {
+  h2 {
+    color: orange;
+  }
+}

@@ -1,41 +1,27 @@
-<h2> Moderatr dashboard </h2>
+<h2> Dashboard </h2>
 <div class="container">
   <div class="row">
-    <div class="container-recipe">
-    <h1 class="text-center"> Pending preparations</h1>
+    <div class="col-sm-8">
+    <h1 class="text-center"> Pending recipes</h1>
     <% @recipes.each do |recipe| %>
-      <div class="col-xs-12">
-        <div class="card-recipe">
-          <div class="row">
-            <div class="col-xs-5">
-            <h1>**PHOTO HERE***</h1>
-          </div>
-        <div class="col-xs-offset-1 col-xs-6">
-          <div class="card-body">
-            <h2><%= recipe.title %></h2>
-            <h3><%= recipe.cost %></h3>
-            <h3><%= recipe.purpose %></h3>
-            <h3><%= recipe.difficulty %></h3>
-            <h3><%= @tags.first.name%></h3>
-          </div>
-          <%= link_to "Review preparation", edit_moderators_recipe_path(recipe), class: "btn" %>
+        <div class="card-pending">
+            <h2 style= "width: 200px;"><%= recipe.title %></h2>
+            <h3><%= recipe.user.username%></h3>
+          <%= link_to "Review preparation", edit_moderators_recipe_path(recipe), class: "btn btn-warning" %>
         </div>
-      </div>
-      </div>
-    </div>
     <% end %>
   </div>
+
+  <div class="col-sm-4">
   <div class="container-tags">
   <h1 class="text-center">Tags</h1>
     <%= link_to "Create tag", new_moderators_tag_path, class: "btn" %>
     <% @tags.each do |tag| %>
-    <div class="col-xs-5">
-      <div class="tag-list">
           <h3><%= tag.name %></h3>
-          <%= link_to "Edit Tag", edit_moderators_tag_path(tag), class: "btn" %>
-        </div>
-      </div>
+          <%= link_to "Edit Tag", edit_moderators_tag_path(tag), class: "btn btn-success" %>
       <% end %>
     </div>
+    </div>
   </div>
+</div>
 </div>
