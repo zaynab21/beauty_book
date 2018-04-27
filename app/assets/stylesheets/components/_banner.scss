@@ -1,12 +1,15 @@
 .banner {
   color: white;
   text-align: center;
-  height: 320px;
+  height: 90vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-position: center;
+  background-image: image-url("1.jpg");
+  background-repeat: no-repeat;
 }
 .banner h1 {
   font-size: 50px;
@@ -19,4 +22,9 @@
   color: rgb(255, 255, 255);
   opacity: 0.6;
   margin-bottom: 30px;
+  text-shadow: 0 2px 2px rgba(0,0,0,0.8);
 }
+
+
+
+

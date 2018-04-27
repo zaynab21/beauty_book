@@ -1,42 +1,57 @@
 <div class="container">
   <div class="container-content ">
     <div class="row">
-      <div class="col-xs-12 col-sm-9 col-xs-offset-2">
+      <div class="col-xs-12 col-sm-07">
+        <h2 class="recipe-title"><%= @recipe.title %></h2>
         <div class="recipe-summary row">
           <div class="recipe-attributes col-xs-12 col-sm-7">
-            <h2 class="recipe-title"><%= @recipe.title %></h2>
-            <br>
             <div class="ratings">
               <h4>Ratings</h4>
             </div>
             <div class="general-info">
-              <p><%= @recipe.difficulty %></p>
-              <p><%= @recipe.cost %></p>
-              <p>time</p>
+              <ul class="list-inline infos">
+                <li id="effect"><%= @recipe.effect %></li>
+                <li id="dificulty"><%= @recipe.difficulty %></li>
+                <li id="cost"><%= @recipe.cost %></li>
+                  <% 3.times do |i| %>
+                  <% if i < @recipe.cost %>
+                    <i class="fa fa-money yellow"></i>
+                  <% else %>
+                    <i class="fa fa-money gray"></i>
+                  <% end %>
+                  <% end %>
+              </ul>
+              <p id="preparation">Preparation time</p>
+              <p id="application">Application time</p>
             </div>
+
           </div>
-          <div class="recipe-illustration">
-            <% @recipe.recipe_photos.each do |recipe_photo| %>
-            <%= cl_image_tag recipe_photo.photo, height: 300, width: 400, crop: :fill %>
-            <% end %>
-            <p><%= @recipe.purpose %></p>
+          <div class="recipe-illustration col-xs-12 col-sm-5">
+            <%= render 'carousel' %>
           </div>
+
         </div>
+        <ul class="list-inline actions">
+        <li class="link"><%= link_to 'Save', "" %></li>
+        <li class="link"><%= link_to 'Rate', "" %></li>
+        <li class="link"><%= link_to 'Share', "" %></li>
+        <li class="link"><%= link_to 'Pin', "" %></li>
+      </ul>
       </div>
     </div>
-    <div class="user-actions col-xs-12 col-sm-9 col-xs-offset-2">
-      <ul class="list-inline">
-        <li>Save</li>
-        <li>Rate</li>
-        <li>Share</li>
-        <li>Pin</li>
-      </ul>
-    </div>
-    <div class="recipe-description-content col-xs-12 col-sm-9 col-xs-offset-2">
+
+    <div class="recipe-description-content col-xs-12 col-sm-08">
       <div class="content-ingredient"></div>
       <div class="description-content">
         <h3 class="">Description</h3>
         <p><%= @recipe.description %></p>
+      </div>
+      <div class="tag-content col-xs-12 col-sm-08">
+        <ul class="list-inline">
+          <li class="tag">tag 1</li>
+          <li class="tag">Tag 2</li>
+          <li class="tag">Tag 3</li>
+        </ul>
       </div>
     </div>
   </div>
