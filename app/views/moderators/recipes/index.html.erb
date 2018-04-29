@@ -5,7 +5,7 @@
     <h1 class="text-center"> Pending recipes</h1>
     <% @recipes.each do |recipe| %>
         <div class="card-pending">
-            <h2 style= "width: 200px;"><%= recipe.title %></h2>
+            <h2 style= "width: 150px;"><%= recipe.title %></h2>
             <h3><%= recipe.user.username%></h3>
           <%= link_to "Review preparation", edit_moderators_recipe_path(recipe), class: "btn btn-warning" %>
         </div>

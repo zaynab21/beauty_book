@@ -21,7 +21,7 @@
       <!-- Links when logged in -->
       <%= link_to "New recipe", new_recipe_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "All recipes", recipes_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Profile", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "MyBeautyBook", "#", class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -48,6 +48,7 @@
       </div>
     <% elsif moderator_signed_in? %>
     <%= link_to "Dashboard", moderators_recipes_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "All recipes", recipes_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <div class="navbar-wagon-item">
         <div class="dropdown">
           <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
@@ -61,7 +62,6 @@
         </div>
       </div>
       <% else %>
-      <%= link_to t(".sign_in", default: "Login as mod "), new_moderator_session_path,class: "navbar-wagon-item navbar-wagon-link" %>
       <!-- Login link (when logged out) -->
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
