@@ -1,8 +1,6 @@
 class ReviewsController < ApplicationController
-  before_action :set_recipe, only: [:new, :create]
+  before_action :set_recipe, only: [:create]
 
-  def new
-  end
 
   def create
     @review = Review.new(review_params)

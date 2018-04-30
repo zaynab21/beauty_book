@@ -6,7 +6,16 @@
         <div class="recipe-summary row">
           <div class="recipe-attributes col-xs-12 col-sm-7">
             <div class="ratings">
-              <h4>Ratings</h4>
+              <h4>Rating</h4>
+                <div class='padded-1em'>
+              <% 5.times do |i| %>
+              <% if i < @average_rating %>
+              <i class="fa fa-star yellow"></i>
+              <% else %>
+              <i class="fa fa-star gray"></i>
+              <% end %>
+              <% end %>
+              </div>
             </div>
             <div class="general-info">
               <ul class="list-inline infos">
@@ -65,7 +74,7 @@
             </ul>
           </div>
         </div>
-       <!--  <div class="recipe-reviews col-xs-12 col-sm-08">
+        <div class="recipe-reviews col-xs-12 col-sm-08">
           <h3>Reviews</h3>
           <%= simple_form_for [@recipe, @review] do |f| %>
           <%= f.input :content %>
@@ -86,6 +95,6 @@
             </li>
             <% end %>
           </ul>
-        </div> -->
+        </div>
       </div>
     </div>
