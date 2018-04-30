@@ -1,10 +1,10 @@
 .container-recipe {
   background-color: white;
   width: 75%;
-  padding-right: 40px;
-  padding-left: 40px;
+  padding: 40px;
   margin: 24px auto 0 auto;
   position: relative;
+  margin: 50px auto;
 }
 
 #query {
@@ -18,22 +18,45 @@
   border-radius: 10px;
 }
 
-
 .btn {
   border-radius: 15px;
 }
 
 .container-filters {
-  background-color: #fcee97;
-  border: 1px solid rgba(0,0,0,0.4);
   width: 75%;
   padding-right: 40px;
   padding-left: 40px;
-  padding: 20px;
-  margin: 24px auto 24px auto;
+  margin: 50px auto 0 auto;
   display: none;
-  line-height: 2;
   position: relative;
+  .btn {
+    width: 100%;
+    font-weight: bold;
+    margin-top: 30px;
+  }
+}
+.filters-form {
+  display: flex ;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.sort-btn {
+  background: #b7b7b7;
+  padding: 10px;
+  border-radius: 5px;
+  opacity: .4;
+  flex: 0 0 22%;
+  margin-bottom: 15px;
+  text-align: center;
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+  &.active {
+  background: $brand-success;
+  color: white;
+  opacity: 1;
+  }
 }
 
 .container-content {
