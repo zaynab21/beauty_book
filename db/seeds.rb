@@ -30,10 +30,3 @@ Recipe.create!(user_id: hamid.id, title: 'Cataplasme au citron', effect: 'moistu
 Recipe.create!(user_id: hamida.id, title: 'Coloration au hénné',  effect: 'Anti-aging',   purpose: 'oily skin', difficulty: 2, cost: 6, description: "put the henna on the bowl", tags: [hydratant, peau_seche])
 puts 'Finished!'
 
-Recipe.all.each do |recipe|
-  recipe.create!(recipe_attributes)
-end
-
-Tag.all.each do |tag|
-  tag.create!(tag_attributes)
-end

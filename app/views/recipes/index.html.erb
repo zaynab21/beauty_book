@@ -17,6 +17,10 @@
     <%= radio_button_tag(:sort, :diff_desc) %>
     <%= label_tag :sort, "By difficulty"  %>
     </div>
+    <div class="col-sm-4">
+    <%= radio_button_tag(:sort, :views) %>
+    <%= label_tag :views, "By popularity"  %>
+    </div>
       <%= submit_tag("Sort", class: "btn btn-success", id: "search-filter") %>
     <% end %>
   </div>
