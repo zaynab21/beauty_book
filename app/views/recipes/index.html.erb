@@ -1,29 +1,33 @@
 <div class="container-filters">
-  <div class="row">
-    <%= form_tag recipes_path, method: :get do %>
-    <div class="col-sm-4">
-    <%= radio_button_tag(:sort, :desc) %>
-    <%= label_tag :sort, "Price desc"  %>
+  <form action="/recipes" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+    <div class="filters-form">
+      <div class="sort-btn">
+        <input type="radio" name="sort" id="sort_desc" value="desc" class="hidden" />
+        <label for="sort_desc">Price desc</label>
+      </div>
+      <div class="sort-btn">
+        <input type="radio" name="sort" id="sort_asc" value="asc" class="hidden" />
+        <label for="sort_asc">Price asc</label>
+      </div>
+      <div class="sort-btn">
+        <input type="radio" name="sort" id="sort_diff_asc" value="diff_asc" class="hidden" />
+        <label for="sort_diff_asc">By simplicity</label>
+      </div>
+      <div class="sort-btn">
+        <input type="radio" name="sort" id="sort_diff_desc" value="diff_desc" class="hidden" />
+        <label for="sort_diff_desc">By difficulty</label>
+      </div>
+      <div class="sort-btn">
+        <input type="radio" name="sort" id="sort_views" value="views" class="hidden" />
+        <label for="sort_views">By popularity</label>
+      </div>
     </div>
-    <div class="col-sm-4">
-    <%= radio_button_tag(:sort, :asc) %>
-    <%= label_tag :sort, "Price asc"  %>
+    <div class="row">
+      <div class="col-xs-2 col-xs-offset-5">
+        <button type="submit" class="btn btn-success">Sort</button>
+      </div>
     </div>
-    <div class="col-sm-4">
-    <%= radio_button_tag(:sort, :diff_asc) %>
-    <%= label_tag :sort, "By simplicity"  %>
-    </div>
-    <div class="col-sm-4">
-    <%= radio_button_tag(:sort, :diff_desc) %>
-    <%= label_tag :sort, "By difficulty"  %>
-    </div>
-    <div class="col-sm-4">
-    <%= radio_button_tag(:sort, :views) %>
-    <%= label_tag :views, "By popularity"  %>
-    </div>
-      <%= submit_tag("Sort", class: "btn btn-success", id: "search-filter") %>
-    <% end %>
-  </div>
+  </form>
 </div>
 
 <div class="container-recipe">
@@ -34,6 +38,10 @@
     <% @recipes.each do |recipe| %>
     <div class="col-xs-12">
       <div class="card-recipe">
+        <div class="card-edit">
+          <%= link_to "Edit", edit_moderators_recipe_path(recipe), class: "btn btn-warning" %>
+          <%= link_to "Delete", recipes_path, class: "btn btn-danger" %>
+        </div>
         <%= link_to "", recipe_path(recipe), class: "card-link" %>
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-6">

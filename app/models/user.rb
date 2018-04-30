@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :recipes
   has_many :reviews
+  mount_uploader :photo, PhotoUploader
   validates :username, presence: true, uniqueness: true
   validates :email, uniqueness: true
   validates :age, numericality: { only_integer: true }, allow_blank: true
