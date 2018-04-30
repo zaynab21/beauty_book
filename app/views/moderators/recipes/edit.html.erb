@@ -1,22 +1,42 @@
+
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-sm-off">
-      <div class="form-login">
-        <h2> Your pending preparation</h2>
-        <%= simple_form_for @recipe, url: moderators_recipe_path(@recipe) do |f| %>
+
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <div class="form-recipe">
+        <h2>Edit recipe</h2>
+        <%= simple_form_for @recipe do |f| %>
         <%= f.input :title %>
         <%= f.input :effect %>
-        <%= f.input :difficulty, collection: [1, 2, 3] %>
-        <%= f.input :cost %>
+        <div class="row">
+          <div class="col-xs-6">
+            <%= f.input :cost, collection: [1, 2, 3] %>
+          </div>
+          <div class="col-xs-6">
+            <%= f.input :difficulty, collection: [1, 2, 3] %>
+          </div>
+        </div>
         <%= f.input :purpose %>
         <%= f.input :description %>
         <%= f.input :tag_ids, as: :check_boxes, collection:  Tag.all, label_method: :name, value_method: :id %>
+        <%= f.simple_fields_for :recipe_photos do |p| %>
+        <%= p.input :photo %>
+        <% end %>
         <%= f.submit 'Publish', name: "button_action", value: "Publish", class: "btn btn-success" %>
         <%= f.submit 'Decline', name: "button_action", value: "Decline", class: "btn btn-danger" %>
         <%= f.submit 'Keep pending', class: "btn btn-primary" %>
-        <% end %>
+        <%= f.button :submit, class: "btn btn-success" %>
+      <% end %>
       </div>
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
 
