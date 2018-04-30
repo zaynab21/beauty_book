@@ -12,9 +12,9 @@ $font-size-base: 18px;
 // Colors
 $gray-base:       $gray;
 $brand-primary:   $blue;
-$brand-success:   $green;
-$brand-info:      $yellow;
-$brand-danger:    $red;
+$brand-success:   $my-green;
+$brand-info:      $my-yellow;
+$brand-danger:    $my-green;
 $brand-warning:   $orange;
 
 // Buttons & inputs' radius
@@ -23,3 +23,8 @@ $border-radius-large: 2px;
 $border-radius-small: 2px;
 
 // Override other variables below!
+$my-green: #0B8457;
+$my-yellow: #EAC100;
+$my-beige: #F8F1D0;
+$my-red: #CF1B1B;
+$my-blue: #0E6B9A;

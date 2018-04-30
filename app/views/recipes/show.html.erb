@@ -6,7 +6,16 @@
         <div class="recipe-summary row">
           <div class="recipe-attributes col-xs-12 col-sm-7">
             <div class="ratings">
-              <h4>Ratings</h4>
+              <h4>Rating</h4>
+                <div class='padded-1em'>
+              <% 5.times do |i| %>
+              <% if i < @average_rating %>
+              <i class="fa fa-star yellow"></i>
+              <% else %>
+              <i class="fa fa-star gray"></i>
+              <% end %>
+              <% end %>
+              </div>
             </div>
             <div class="general-info">
               <ul class="list-inline infos">
@@ -14,57 +23,78 @@
                 <li id="dificulty"><Difficulty></li>
                   <% 3.times do |i|  %>
                   <% if i < @recipe.difficulty %>
-                    <i class="fa fa-eyedropper yellow"></i>
+                  <i class="fa fa-eyedropper yellow"></i>
                   <% else %>
-                    <i class="fa fa-eyedropper gray"></i>
+                  <i class="fa fa-eyedropper gray"></i>
                   <% end %>
                   <% end %>
-                <li id="cost"><Cost></li>
-                  <% 3.times do |i|  %>
-                  <% if i < @recipe.cost %>
+                  <li id="cost"><Cost></li>
+                    <% 3.times do |i|  %>
+                    <% if i < @recipe.cost %>
                     <i class="fa fa-money yellow"></i>
-                  <% else %>
+                    <% else %>
                     <i class="fa fa-money gray"></i>
-                  <% end %>
-                  <% end %>
-              </ul>
-              <div class=" time">
-                <ul class="list-inline">
-                  <li>Preparation time</li>
-                  <li>Application time</li>
-                </ul>
+                    <% end %>
+                    <% end %>
+                  </ul>
+                  <div class=" time">
+                    <ul class="list-inline">
+                      <li>Preparation time</li>
+                      <li>Application time</li>
+                    </ul>
+                  </div>
+                </div>
+
               </div>
+              <div class="recipe-illustration col-xs-12 col-sm-5">
+                <%= render 'carousel' %>
+              </div>
+
             </div>
-
+            <ul class="list-inline actions">
+              <li class="link"><%= link_to 'Save', "" %></li>
+              <li class="link"><%= link_to 'Rate', "" %></li>
+              <li class="link"><%= link_to 'Share', "" %></li>
+              <li class="link"><%= link_to 'Pin', "" %></li>
+            </ul>
           </div>
-          <div class="recipe-illustration col-xs-12 col-sm-5">
-            <%= render 'carousel' %>
-          </div>
-
         </div>
-        <ul class="list-inline actions">
-        <li class="link"><%= link_to 'Save', "" %></li>
-        <li class="link"><%= link_to 'Rate', "" %></li>
-        <li class="link"><%= link_to 'Share', "" %></li>
-        <li class="link"><%= link_to 'Pin', "" %></li>
-      </ul>
+
+        <div class="recipe-description-content col-xs-12 col-sm-08">
+          <div class="content-ingredient"></div>
+          <div class="description-content">
+            <h3 class="">Description</h3>
+            <p><%= @recipe.description %></p>
+          </div>
+          <div class="tag-content col-xs-12 col-sm-08">
+            <ul class="list-inline">
+              <li class="tag">tag 1</li>
+              <li class="tag">Tag 2</li>
+              <li class="tag">Tag 3</li>
+            </ul>
+          </div>
+        </div>
+        <div class="recipe-reviews col-xs-12 col-sm-08">
+          <h3>Reviews</h3>
+          <%= simple_form_for [@recipe, @review] do |f| %>
+          <%= f.input :content %>
+          <%= f.input :rating, collection: [0, 1, 2, 3, 4, 5], prompt: 'rate the recipe' %>
+          <%= f.button :submit %>
+          <% end %>
+          <ul class="list-unstyled">
+            <% @recipe.reviews.each do |review| %>
+            <li class='padded-1em'>
+              <% 5.times do |i| %>
+              <% if i < review.rating %>
+              <i class="fa fa-star yellow"></i>
+              <% else %>
+              <i class="fa fa-star gray"></i>
+              <% end %>
+              <% end %>
+              <%= review.content %>
+            </li>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </div>
-
-    <div class="recipe-description-content col-xs-12 col-sm-08">
-      <div class="content-ingredient"></div>
-      <div class="description-content">
-        <h3 class="">Description</h3>
-        <p><%= @recipe.description %></p>
-      </div>
-      <div class="tag-content col-xs-12 col-sm-08">
-        <ul class="list-inline">
-          <li class="tag">tag 1</li>
-          <li class="tag">Tag 2</li>
-          <li class="tag">Tag 3</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-

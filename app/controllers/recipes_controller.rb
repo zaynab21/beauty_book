@@ -14,6 +14,13 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @reviews= @recipe.reviews
+    @ratings = @reviews.map do |review|
+      review.rating
+    end
+    @average_rating = @ratings.reduce(:+).to_f / @reviews.count
+
+    @review = Review.new
   end
 
   def new
