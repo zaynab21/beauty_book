@@ -31,6 +31,6 @@ before_action :set_recipe, only: [:new, :create, :edit, :update, :destroy]
   end
 
   def recipe_params
-    params.require(:recipe).permit(:title, :state, :effect, :difficulty, :description, :cost, :purpose, tag_ids: [] )
+    params.require(:recipe).permit(:title, :state, :feature, :difficulty, :description, :cost, :category, tag_ids: [] )
   end
 end

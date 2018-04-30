@@ -5,14 +5,15 @@ class Recipe < ApplicationRecord
   belongs_to :user
   has_many :tag_recipes, dependent: :destroy
   has_many :tags, through: :tag_recipes
+  has_many :ingredients, through: :ingredient_recipes
   has_many :reviews, dependent: :destroy
   validates_associated :tags
   validates :title, presence: true
   validates :state, presence:true
-  validates :effect, presence: true
+  validates :feature, presence: true
   validates :difficulty, presence: true, numericality: { only_integer: true }
   validates :cost, presence: true, numericality: { only_integer: true }
-  validates :purpose, presence: true
+  validates :category, presence: true
   #inclusion
   validates :description, presence: true
 
