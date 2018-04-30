@@ -38,11 +38,15 @@
                     <% end %>
                     <% end %>
                   </ul>
-                  <div class=" time">
-                    <ul class="list-inline">
-                      <li>Preparation time</li>
-                      <li>Application time</li>
-                    </ul>
+                    <div class="row">
+                      <div class="col-xs-6">
+                        <h4>Preparation time</h4>
+                        <p class=" time text-center"> <%=@recipe.preparation_time_min %></p>
+                      </div>
+                      <div class="col-xs-6">
+                        <h4>Application time</h4>
+                        <p class="time text-center"> <%=@recipe.application_time_min %></p>
+                      </div>
                   </div>
                 </div>
 
@@ -68,23 +72,24 @@
             <p><%= @recipe.description %></p>
           </div>
           <div class="tag-content col-xs-12 col-sm-08">
+            <% @recipe.tags.each do |tag|%>
             <ul class="list-inline">
-              <li class="tag">tag 1</li>
-              <li class="tag">Tag 2</li>
-              <li class="tag">Tag 3</li>
+              <li class="tag"> <%=tag.name %></li>
             </ul>
+             <% end %>
           </div>
         </div>
         <div class="recipe-reviews col-xs-12 col-sm-08">
           <h3>Reviews</h3>
           <%= simple_form_for [@recipe, @review] do |f| %>
+          <%= f.input :rating, collection: [0, 1, 2, 3, 4, 5], prompt: 'Rate the recipe' %>
           <%= f.input :content %>
-          <%= f.input :rating, collection: [0, 1, 2, 3, 4, 5], prompt: 'rate the recipe' %>
           <%= f.button :submit %>
           <% end %>
           <ul class="list-unstyled">
             <% @recipe.reviews.each do |review| %>
             <li class='padded-1em'>
+              <%= review.user.username %>
               <% 5.times do |i| %>
               <% if i < review.rating %>
               <i class="fa fa-star yellow"></i>

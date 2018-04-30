@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :recipes
+  has_many :reviews
   validates :username, presence: true, uniqueness: true
   validates :email, uniqueness: true
   validates :age, numericality: { only_integer: true }, allow_blank: true

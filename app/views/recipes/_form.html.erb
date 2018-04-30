@@ -15,6 +15,14 @@
             <%= f.input :difficulty, collection: [1, 2, 3] %>
           </div>
         </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <%= f.input :preparation_time_min, collection: [5, 15, 30, 60]%>
+          </div>
+          <div class="col-xs-6">
+            <%= f.input :application_time_min %>
+          </div>
+        </div>
         <%= f.input :purpose %>
         <%= f.input :description %>
         <%= f.input :tag_ids, as: :check_boxes, collection:  Tag.all, label_method: :name, value_method: :id %>
