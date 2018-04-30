@@ -29,3 +29,11 @@ Recipe.create!(user_id: hamid.id,title: "Masque à l'orange", effect: 'nourishin
 Recipe.create!(user_id: hamid.id, title: 'Cataplasme au citron', effect: 'moisturizing', purpose: 'normal skin', difficulty: 3, cost: 14, description: "very nice shit", tags: [hydratant, peau_seche])
 Recipe.create!(user_id: hamida.id, title: 'Coloration au hénné',  effect: 'Anti-aging',   purpose: 'oily skin', difficulty: 2, cost: 6, description: "put the henna on the bowl", tags: [hydratant, peau_seche])
 puts 'Finished!'
+
+Recipe.all.each do |recipe|
+  recipe.create!(recipe_attributes)
+end
+
+Tag.all.each do |tag|
+  tag.create!(tag_attributes)
+end

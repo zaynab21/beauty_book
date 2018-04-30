@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :recipes, only: [:index, :show, :new, :create, :edit, :update] do
     resources :reviews, only: [:create]
   end
+  get '/mypage', to: 'pages#mypage'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :moderators do
     resources :recipes

@@ -19,7 +19,7 @@ class RecipesController < ApplicationController
       review.rating
     end
     @average_rating = @ratings.reduce(:+).to_f / @reviews.count
-
+    #/
     @review = Review.new
   end
 
