@@ -52,7 +52,14 @@
   background-size: cover;
   border-radius: 3px;
 }
+.card-edit {
+  position: absolute;
+  top: 42%;
+  left: 42%;
+  display: none;
+}
 .card-recipe{
+  position: relative;
   margin-bottom: 20px;
   padding: 30px;
   height: 250px;
