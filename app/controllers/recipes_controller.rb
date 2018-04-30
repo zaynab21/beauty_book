@@ -11,21 +11,23 @@ class RecipesController < ApplicationController
     @recipes = @recipes.order(cost: :asc) if params[:sort] =="asc"
     @recipes = @recipes.order(difficulty: :desc) if params[:sort] == "diff_desc"
     @recipes = @recipes.order(difficulty: :asc) if params[:sort] =="diff_asc"
+    @recipes = @recipes.order(views: :desc) if params[:sort] =="views"
   end
 
   def show
+    @recipe.views += 1
+    @recipe.save
     @reviews= @recipe.reviews
     @ratings = @reviews.map do |review|
       review.rating
     end
-    @average_rating = @ratings.reduce(:+).to_f / @reviews.count
-    #/
+    # @average_rating = @ratings.reduce(:+).fdiv(@reviews.count)
+    @average_rating = 1
     @review = Review.new
   end
 
   def new
     @recipe = Recipe.new
-    @recipe.recipe_photos.build
     @recipe.recipe_photos.build
   end
 
