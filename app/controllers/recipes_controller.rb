@@ -21,8 +21,9 @@ class RecipesController < ApplicationController
     @ratings = @reviews.map do |review|
       review.rating
     end
-    # @average_rating = @ratings.reduce(:+).fdiv(@reviews.count)
-    @average_rating = 1
+    @ratings = [0] if @ratings.reduce(:+).nil?
+    @average_rating = @ratings.reduce(:+).fdiv(@reviews.count)
+
     @review = Review.new
   end
 
