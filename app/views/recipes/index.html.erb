@@ -49,7 +49,7 @@
               <% if recipe.recipe_photos.first != nil %>
                 <%= cl_image_tag recipe.recipe_photos.first.photo, crop: :fill, class: "card-photos" %>
               <% end %>
-              <div class="card-category"><%= recipe.purpose %></div>
+              <div class="card-category"><%= recipe.category %></div>
             <div class="card-description">
             </div>
           </div>
@@ -58,11 +58,7 @@
             <div class="card-body">
               <h2><%= recipe.title %></h2>
               <hr>
-              <p><%= recipe.description %></p>
-              <% if current_user.nil? %>
-                <%= link_to "Edit", edit_moderators_recipe_path(recipe), class: "btn btn-warning" %>
-                <%= link_to "Delete", recipes_path, class: "btn btn-danger" %>
-              <% end %>
+              <p><%= recipe.description.truncate_words(25) %></p>
             </div>
           </div>
       </div>
