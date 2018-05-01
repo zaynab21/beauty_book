@@ -6,7 +6,7 @@
         <h2>New recipe</h2>
         <%= simple_form_for @recipe do |f| %>
         <%= f.input :title %>
-        <%= f.input :feature %>
+        <%= f.input :feature,  placeholder: "Coloring, Moisturizing, Dandruff..." %>
         <div class="row">
           <div class="col-xs-6">
             <%= f.input :cost, collection: [1, 2, 3] %>
@@ -23,7 +23,7 @@
             <%= f.input :application_time_min %>
           </div>
         </div>
-        <%= f.input :category %>
+        <%= f.input :category,  placeholder: "Hair, Face, Nails, Body..." %>
         <%= f.input :description %>
         <div class="form-group check_boxes optional recipe_tag_ids">
           <legend class="col-form-label pt-0">Tags</legend>

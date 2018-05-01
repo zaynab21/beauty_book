@@ -67,9 +67,9 @@ ActiveRecord::Schema.define(version: 20180430160848) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "views", default: 0
     t.integer "application_time_min"
     t.integer "preparation_time_min"
+    t.integer "views", default: 0
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
