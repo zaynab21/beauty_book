@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20180430160848) do
     t.integer "cost"
     t.string "category"
     t.text "description"
-    t.text "state", default: "pending"
+    t.text "state", default: "private"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

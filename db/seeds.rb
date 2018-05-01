@@ -33,10 +33,9 @@ puts 'Finished!'
 
 puts 'Creating ingredients...'
 
-filepath = "seed_ingredient.csv"
-csv_options = { col_sep: ',', quote_char: '"' }
+filepath = "../ingredients.csv"
 
-CSV.foreach(filepath, csv_options) do |row|
+CSV.foreach(filepath) do |row|
   Ingredient.create!(name: row.first)
 end
 puts 'Finished!'

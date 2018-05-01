@@ -36,12 +36,20 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
     if @recipe.save
-      redirect_to recipes_path # new_moderator_recipe_path #needs to go to moderator controller
-      flash[:success] = " Your preparation was successfully submitted "
+      redirect_to mypage_path # new_moderator_recipe_path #needs to go to moderator controller
+      flash[:success] = " Your preparation was successfully created "
     else
       flash[:alert] =  @recipe.errors.full_messages
       render :new
     end
+  end
+
+  def edit
+  end
+
+  def update
+    @recipe.update(recipe_params)
+    redirect_to mypage_path
   end
 
   private
