@@ -7,8 +7,11 @@
       <% @recipes.each do |recipe| %>
       <div class="card-pending">
         <%= recipe.title %>
-        <%= link_to "Edit", edit_recipe_path(recipe), class: "btn btn-success" %>
-        <%= link_to "Add ingredient", new_recipe_ingredient_recipe_path(recipe), class: "btn btn-help" %>
+        <div>
+          <%= link_to "Add ingredient", new_recipe_ingredient_recipe_path(recipe), class: "btn btn-help" %>
+          <%= link_to "Edit", edit_recipe_path(recipe), class: "btn btn-success" %>
+          <%= link_to "Delete", recipe_path(recipe),class: 'btn btn-danger', data: { confirm: "Are you sure?" }, method: :delete %>
+        </div>
       </div>
       <% end %>
     </div>

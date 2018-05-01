@@ -52,6 +52,11 @@ class RecipesController < ApplicationController
     redirect_to mypage_path
   end
 
+  def destroy
+    @recipe.destroy
+    redirect_to mypage_path
+  end
+
   private
 
   def set_recipe
