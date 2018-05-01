@@ -8,7 +8,7 @@ class CreateRecipes < ActiveRecord::Migration[5.1]
       t.integer :cost
       t.string :purpose
       t.text :description
-      t.text :state, default: :pending
+      t.text :state, default: :private
       t.references :user, foreign_key: true
 
       t.timestamps
