@@ -3,6 +3,7 @@
     <div class="row">
       <div class="col-xs-12 col-sm-07">
         <h2 class="recipe-title"><%= @recipe.title %></h2>
+        <h3><strong>By</strong> <%= @recipe.user.username %></h3>
         <div class="recipe-summary row">
           <div class="recipe-attributes col-xs-12 col-sm-7">
             <p><%= @recipe.views %></p>
