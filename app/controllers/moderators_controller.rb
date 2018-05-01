@@ -1,2 +1,0 @@
-class ModeratorsController < ApplicationController
-end
