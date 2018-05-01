@@ -22,11 +22,11 @@ mode1 = Moderator.create!(password: 'hamidou', email: 'bossdu95@yahoo.fr' )
 puts "Creating tags..."
 hydratant = Tag.create!(name: "Hydratant")
 acné = Tag.create!(name: "Acné")
-peau_seche = Tag.create!(name: "Peau séche")
+peau_seche = Tag.create!(name: "Peau sèche")
 
 puts 'Creating recipes...'
-Recipe.create!(user_id: hamid.id,title: "Masque à l'orange", effect: 'nourishing', purpose:'dry hair', difficulty: 3, cost: 20, description: "nice shit", tags: [hydratant, peau_seche])
-Recipe.create!(user_id: hamid.id, title: 'Cataplasme au citron', effect: 'moisturizing', purpose: 'normal skin', difficulty: 3, cost: 14, description: "very nice shit", tags: [hydratant, peau_seche])
-Recipe.create!(user_id: hamida.id, title: 'Coloration au hénné',  effect: 'Anti-aging',   purpose: 'oily skin', difficulty: 2, cost: 6, description: "put the henna on the bowl", tags: [hydratant, peau_seche])
+Recipe.create!(user_id: hamid.id,title: "Masque à l'orange", feature: 'nourishing', category:'dry hair', difficulty: 3, cost: 20, description: "nice shit", tags: [hydratant, peau_seche])
+Recipe.create!(user_id: hamid.id, title: 'Cataplasme au citron', feature: 'moisturizing', category: 'normal skin', difficulty: 3, cost: 14, description: "very nice shit", tags: [hydratant, peau_seche])
+Recipe.create!(user_id: hamida.id, title: 'Coloration au hénné',  feature: 'Anti-aging',   category: 'oily skin', difficulty: 2, cost: 6, description: "put the henna on the bowl", tags: [hydratant, peau_seche])
 puts 'Finished!'
 

@@ -18,7 +18,7 @@ class Recipe < ApplicationRecord
   validates :description, presence: true
 
   pg_search_scope :global_search,
-    against: [ :title, :effect, :difficulty, :cost, :purpose, :description ],
+    against: [ :title, :feature, :difficulty, :cost, :category, :description ],
     associated_against: {
       tags: [ :name ]
     },
