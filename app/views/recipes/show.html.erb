@@ -5,10 +5,10 @@
         <h2 class="recipe-title"><%= @recipe.title %></h2>
         <div class="recipe-summary row">
           <div class="recipe-attributes col-xs-12 col-sm-7">
-            <p><%= @recipe.views %></p>
+          <%=link_to @recipe.user.username, user_path(@recipe.user), class: "btn"%>
             <div class="ratings">
-              <h4>Rating</h4>
-                <div class='padded-1em'>
+            <h4>Rating</h4>
+              <div class='padded-1em'>
               <% 5.times do |i| %>
               <% if i < @average_rating %>
               <i class="fa fa-star yellow"></i>

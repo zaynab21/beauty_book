@@ -1,25 +1,18 @@
 <h1 class="text-center">My BeautyBook</h1>
 <div class="container">
-<h3 class="text-center">< Hello, @current_user.username ></h3>
+  <h3 class="text-center"> Hello, <%=@current_user.username %></h3>
 
   <div class="row">
     <div class="col-xs-8 col-sm-06">
-      <div class="card">
-        <div class="card-description">
-          <h3>Caracteristiques</h3>
-          <p>some stuff about me </p>
-          <p>Link to update my profil</p>
-        </div>
-        <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-      </div>
+      <%= render 'users/shared/user' %>
+      <%= link_to "Update my profile", edit_user_registration_path(@user), class: "btn btn-lg" %>
     </div>
-    <div class=" col-xs-2 col-sm-3">
-      <div class="container">
-        <%= link_to "Submit recipe", new_recipe_path, class: "btn btn-lg" %>
-      </div>
+    <div class=" text-center col-xs-2 col-sm-3">
+      <%= link_to "Submit recipe", new_recipe_path, class: "btn btn-lg" %>
     </div>
   </div>
 
+  <h2 class="text-center">My Board</h2>
   <div class="col-xs-12 col-sm-08">
     <div class="tabs">
       <a class="tab active" href="#">
@@ -39,37 +32,36 @@
 
   <div class="wrapper-grey padded">
     <div class="sugesstions container">
-    </br>
-    <h2 class="text-center">Discover our suggestions</h2>
-    <div class="row ">
-      <div class="col-xs-12 col-sm-4">
-        <div class="card saved">
-          <div class="card-category"></div>
-          <div class="card-description">
-            <h3>My saved recipes</h3>
+      <div class="row ">
+        <div class="col-xs-12 col-sm-4">
+          <div class="card saved">
+            <div class="card-category"></div>
+              <div class="card-description">
+              <h3>My saved recipes</h3>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card my-recipes">
-          <div class="card-category">-</div>
-          <div class="card-description">
+        <div class="col-xs-12 col-sm-4">
+          <div class="card my-recipes">
+            <div class="card-category">-</div>
+            <div class="card-description">
             <h3>My Beauty recipes</h3>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card my-groups">
-          <div class="card-category">-</div>
-          <div class="card-description">
+        <div class="col-xs-12 col-sm-4">
+          <div class="card my-groups">
+            <div class="card-category">-</div>
+            <div class="card-description">
             <h3>My Beauty groups</h3>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-</div>
+
 
 
 
