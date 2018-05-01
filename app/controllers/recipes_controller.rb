@@ -49,6 +49,9 @@ class RecipesController < ApplicationController
 
   def update
     @recipe.update(recipe_params)
+    if params['button_action'] == 'Publish'
+      @recipe.update(state: "pending")
+    end
     redirect_to mypage_path
   end
 
