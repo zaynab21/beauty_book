@@ -30,6 +30,7 @@ class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
     @recipe.recipe_photos.build
+    @recipe.recipe_photos.build
   end
 
   def create
@@ -45,6 +46,8 @@ class RecipesController < ApplicationController
   end
 
   def edit
+    @recipe.recipe_photos.build
+    @recipe.recipe_photos.build
   end
 
   def update
