@@ -13,8 +13,10 @@ class IngredientRecipesController < ApplicationController
     @ingredient_recipe = IngredientRecipe.new(ingredient_recipe_params)
     @ingredient_recipe.recipe = @recipe
     if @ingredient_recipe.save
-      redirect_to recipe_path(@recipe)
+      flash[:success] = "Ingredient added with success "
+      redirect_to mypage_path
     else
+      flash[:alert] =  @ingredient_recipe.errors.full_messages
       render :new
     end
   end
