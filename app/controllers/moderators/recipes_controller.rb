@@ -7,8 +7,7 @@ before_action :set_recipe, only: [:new, :create, :edit, :update, :destroy]
   end
 
   def edit
-    @recipe.recipe_photos.build
-    @recipe.recipe_photos.build
+    # @recipe.recipe_photos.build
   end
 
   def update
@@ -33,6 +32,6 @@ before_action :set_recipe, only: [:new, :create, :edit, :update, :destroy]
   end
 
   def recipe_params
-    params.require(:recipe).permit(:title, :state, :feature, :difficulty, :description, :cost, :category, tag_ids: [], recipe_photos_attributes: [:photo] )
+    params.require(:recipe).permit(:title, :state, :feature, :difficulty, :description, :cost, :category, tag_ids: [], recipe_photos: [:photo] )
   end
 end

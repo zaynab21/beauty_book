@@ -9,6 +9,7 @@ require 'csv'
 # db/seeds.rb
 puts 'Cleaning database...'
 TagRecipe.delete_all
+IngredientRecipe.delete_all
 Ingredient.delete_all
 Tag.destroy_all
 RecipePhoto.delete_all
@@ -16,8 +17,6 @@ Recipe.delete_all
 User.destroy_all
 Moderator.destroy_all
 Tag.destroy_all
-Ingredient.all
-
 
 puts 'Creating users...'
 hamid = User.create!(username: 'hamid', email: 'hamiddu93@yahoo.fr', password:"password")

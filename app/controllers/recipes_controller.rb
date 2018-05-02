@@ -55,6 +55,11 @@ class RecipesController < ApplicationController
 
   def update
     @recipe.update(recipe_params)
+    if params[:recipe_photos] != nil
+        params[:recipe_photos]['photo'].each do |a|
+          @recipe.recipe_photos.create!(photo: a)
+        end
+      end
     @recipe.update(state: "pending")
     redirect_to mypage_path
   end
