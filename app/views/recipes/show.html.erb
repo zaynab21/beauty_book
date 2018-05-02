@@ -6,10 +6,10 @@
         <h3><strong>By</strong> <%= @recipe.user.username %></h3>
         <div class="recipe-summary row">
           <div class="recipe-attributes col-xs-12 col-sm-7">
-            <p><%= @recipe.views %></p>
+          <%=link_to @recipe.user.username, user_path(@recipe.user), class: "btn"%>
             <div class="ratings">
-              <h4>Rating</h4>
-                <div class='padded-1em'>
+            <!-- <h4>Rating</h4> -->
+              <div class='padded-1em'>
               <% 5.times do |i| %>
               <% if i < @average_rating %>
               <i class="fa fa-star yellow"></i>
@@ -84,14 +84,17 @@
             <h3 class="">Description</h3>
             <p><%= simple_format(@recipe.description)%></p>
           </div>
-          <div class="tag-content col-xs-12 col-sm-08">
-            <% @recipe.tags.each do |tag|%>
+          <div class="row">
+          <div class="col-xs-12 col-sm-08">
             <ul class="list-inline">
+            <% @recipe.tags.each do |tag|%>
               <li class="tag"> <%=tag.name %></li>
             </ul>
              <% end %>
           </div>
-        </div>
+          </div>
+          </div>
+
         <div class="recipe-reviews col-xs-12 col-sm-08">
           <h3>Reviews</h3>
           <%= simple_form_for [@recipe, @review] do |f| %>

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :moderators, path: 'moderators'
   devise_for :users,  path: 'users'
+  resources :users, only: [:show]
   root to: 'pages#home'
   resources :recipes do
     resources :ingredient_recipes
