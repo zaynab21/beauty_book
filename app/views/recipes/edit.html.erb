@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <div class="form-recipe">
+        <h2>edit recipe</h2>
+        <%= simple_form_for @recipe do |f| %>
+        <%= f.input :title %>
+        <%= f.input :feature,  placeholder: "Coloring, Moisturizing, Dandruff..." %>
+        <div class="row">
+          <div class="col-xs-6">
+            <%= f.input :cost, collection: [1, 2, 3] %>
+          </div>
+          <div class="col-xs-6">
+            <%= f.input :difficulty, collection: [1, 2, 3] %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <%= f.input :preparation_time_min, collection: [5, 15, 30, 60]%>
+          </div>
+          <div class="col-xs-6">
+            <%= f.input :application_time_min %>
+          </div>
+        </div>
+        <%= f.input :category,  placeholder: "Hair, Face, Nails, Body..." %>
+        <%= f.input :description %>
+        <div class="form-group check_boxes optional recipe_tag_ids">
+          <legend class="col-form-label pt-0">Tags</legend>
+          <input type="hidden" name="recipe[tag_ids][]" value="" />
+          <div class="tag-choices">
+            <% Tag.all.each do |tag| %>
+              <input class="hidden" type="checkbox" value="<%= tag.id %>" name="recipe[tag_ids][]" id="recipe_tag_ids_<%= tag.id %>" />
+              <label class="tag-choice" for="recipe_tag_ids_<%= tag.id %>"><%= tag.name %></label>
+            <% end %>
+          </div>
+        </div>
+        <%= f.simple_fields_for :recipe_photos do |p| %>
+          <%= p.input :photo %>
+        <% end %>
+        <%= f.button :submit, class: "btn btn-success" %>
+        <%= f.submit 'Publish', name: "button_action", value: "Publish", class: "btn btn-success" %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

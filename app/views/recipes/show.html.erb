@@ -3,6 +3,7 @@
     <div class="row">
       <div class="col-xs-12 col-sm-07">
         <h2 class="recipe-title"><%= @recipe.title %></h2>
+        <h3><strong>By</strong> <%= @recipe.user.username %></h3>
         <div class="recipe-summary row">
           <div class="recipe-attributes col-xs-12 col-sm-7">
           <%=link_to @recipe.user.username, user_path(@recipe.user), class: "btn"%>
@@ -70,8 +71,15 @@
                 <%= link_to "Delete", recipes_path, class: "btn btn-danger" %>
               <% end %>
           </div>
-        <div class="recipe-description-content col-xs-12 col-sm-08">
-          <div class="content-ingredient"></div>
+          <div class="col-sm-4">
+            <div class="ingredient-content">
+              <h3>Ingredients:</h3>
+              <% @recipe.ingredient_recipes.each do |ing| %>
+              <p><%= ing.ingredient.name %> <%= ing.quantity %>g</p>
+              <% end %>
+            </div>
+          </div>
+        <div class="col-sm-8">
           <div class="description-content">
             <h3 class="">Description</h3>
             <p><%= simple_format(@recipe.description)%></p>

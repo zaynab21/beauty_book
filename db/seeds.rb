@@ -1,3 +1,4 @@
+require 'csv'
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -30,3 +31,11 @@ Recipe.create!(user_id: hamid.id, title: 'Cataplasme au citron', feature: 'moist
 Recipe.create!(user_id: hamida.id, title: 'Coloration au hénné',  feature: 'Anti-aging',   category: 'oily skin', difficulty: 2, cost: 6, description: "put the henna on the bowl", tags: [hydratant, peau_seche])
 puts 'Finished!'
 
+puts 'Creating ingredients...'
+
+filepath = "../ingredients.csv"
+
+CSV.foreach(filepath) do |row|
+  Ingredient.create!(name: row.first)
+end
+puts 'Finished!'
