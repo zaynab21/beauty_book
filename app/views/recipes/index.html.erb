@@ -37,12 +37,8 @@
     <h1 class="text-center">Recipes</h1>
     <% @recipes.each do |recipe| %>
     <div class="col-xs-12">
+      <%= link_to "", recipe_path(recipe), class: "card-link" %>
       <div class="card-recipe">
-        <div class="card-edit">
-          <%= link_to "Edit", edit_moderators_recipe_path(recipe), class: "btn btn-warning" %>
-          <%= link_to "Delete", recipes_path, class: "btn btn-danger" %>
-        </div>
-        <%= link_to "", recipe_path(recipe), class: "card-link" %>
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="card" >
