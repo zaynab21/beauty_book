@@ -1,8 +1,9 @@
 class IngredientRecipesController < ApplicationController
-  before_action :set_recipe, only: [:new, :create, :index, :edit, :update, :delete]
+  before_action :set_recipe, only: [:index, :new, :create, :index, :edit, :update, :delete]
 
   def index
-    @ingredient_recipes = IngredientRecipe.where(recipe: @recipe)
+    @ing_recipes = @recipe.ingredient_recipes
+     @ingredient_recipe = IngredientRecipe.new
   end
 
   def new
@@ -14,7 +15,7 @@ class IngredientRecipesController < ApplicationController
     @ingredient_recipe.recipe = @recipe
     if @ingredient_recipe.save
       flash[:success] = "Ingredient added with success "
-      redirect_to mypage_path
+      redirect_to recipe_ingredient_recipes_path(@recipe)
     else
       flash[:alert] =  @ingredient_recipe.errors.full_messages
       render :new
