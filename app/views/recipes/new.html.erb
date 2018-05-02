@@ -1,2 +1,20 @@
-<%= render 'form' %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <div class="form-recipe">
+        <h2>New recipe</h2>
+        <%= simple_form_for @recipe do |f| %>
+        <%= f.input :title %>
+        <%= f.input :category,  placeholder: "Hair, Face, Nails, Body..." %>
+        <%= f.simple_fields_for :recipe_photos do |p| %>
+          <%= p.input :photo %>
+        <% end %>
+        <%= f.button :submit, class: "btn btn-success" %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 

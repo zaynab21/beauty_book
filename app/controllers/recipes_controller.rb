@@ -36,8 +36,8 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
     if @recipe.save
-      redirect_to mypage_path # new_moderator_recipe_path #needs to go to moderator controller
-      flash[:success] = " Your preparation was successfully created "
+      redirect_to recipe_ingredient_recipes_path(@recipe)  # new_moderator_recipe_path #needs to go to moderator controller
+      flash[:success] = " Your recipe was successfully created "
     else
       flash[:alert] =  @recipe.errors.full_messages
       render :new
@@ -49,9 +49,7 @@ class RecipesController < ApplicationController
 
   def update
     @recipe.update(recipe_params)
-    if params['button_action'] == 'Publish'
-      @recipe.update(state: "pending")
-    end
+    @recipe.update(state: "pending")
     redirect_to mypage_path
   end
 

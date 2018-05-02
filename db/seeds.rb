@@ -12,6 +12,7 @@ Recipe.destroy_all
 User.destroy_all
 Moderator.destroy_all
 Tag.destroy_all
+Ingredient.all
 
 puts 'Creating users...'
 hamid = User.create!(username: 'hamid', email: 'hamiddu93@yahoo.fr', password:"password")
@@ -33,7 +34,7 @@ puts 'Finished!'
 
 puts 'Creating ingredients...'
 
-filepath = "../ingredients.csv"
+filepath = "ingredients.csv"
 
 CSV.foreach(filepath) do |row|
   Ingredient.create!(name: row.first)
