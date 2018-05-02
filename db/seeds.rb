@@ -15,6 +15,8 @@ RecipePhoto.delete_all
 Recipe.delete_all
 User.destroy_all
 Moderator.destroy_all
+Tag.destroy_all
+Ingredient.all
 
 
 puts 'Creating users...'

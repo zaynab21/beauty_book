@@ -11,13 +11,8 @@ class Recipe < ApplicationRecord
   validates_associated :tags
   validates :title, presence: true
   validates :state, presence:true
-  validates :feature, presence: true
-  validates :difficulty, presence: true, numericality: { only_integer: true }
-  validates :cost, presence: true, numericality: { only_integer: true }
   validates :category, presence: true
   #inclusion
-  validates :description, presence: true
-
   pg_search_scope :global_search,
     against: [ :title, :feature, :difficulty, :cost, :category, :description ],
     associated_against: {
