@@ -5,8 +5,9 @@
         <h2>New recipe</h2>
         <%= simple_form_for @recipe do |f| %>
         <%= f.input :title %>
-        <%= f.simple_fields_for :recipe_photos do |p| %>
-          <%= p.input :photo %>
+        <%= f.fields_for :recipe_photos do |p| %>
+          <%= p.label :photo %>
+        <%= p.file_field :photo, multiple: true, name: "recipe_photos[photo][]" %>
         <% end %>
         <%= f.button :submit, class: "btn btn-success" %>
       <% end %>

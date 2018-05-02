@@ -34,8 +34,11 @@
             <% end %>
           </div>
         </div>
-        <%= f.simple_fields_for :recipe_photos do |p| %>
-          <%= p.input :photo %>
+        <% if @recipe.recipe_photos.empty? %>
+        <%= f.fields_for :recipe_photos do |p| %>
+          <%= p.label :photo %>
+        <%= p.file_field :photo, multiple: true, name: "recipe_photos[photo][]" %>
+        <% end %>
         <% end %>
         <%= f.submit 'Publish', name: "button_action", value: "Publish", data: {confirm: 'Are you sure?'}, class: "btn btn-success" %>
       <% end %>

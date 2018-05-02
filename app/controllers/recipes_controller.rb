@@ -30,13 +30,17 @@ class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
     @recipe.recipe_photos.build
-    @recipe.recipe_photos.build
   end
 
   def create
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
     if @recipe.save
+      if params[:recipe_photos] != nil
+        params[:recipe_photos]['photo'].each do |a|
+          @recipe.recipe_photos.create!(photo: a)
+        end
+      end
       redirect_to recipe_ingredient_recipes_path(@recipe)  # new_moderator_recipe_path #needs to go to moderator controller
       flash[:success] = " Your recipe was successfully created "
     else
@@ -47,11 +51,15 @@ class RecipesController < ApplicationController
 
   def edit
     @recipe.recipe_photos.build
-    @recipe.recipe_photos.build
   end
 
   def update
     @recipe.update(recipe_params)
+    if params[:recipe_photos] != nil
+        params[:recipe_photos]['photo'].each do |a|
+          @recipe.recipe_photos.create!(photo: a)
+        end
+      end
     @recipe.update(state: "pending")
     redirect_to mypage_path
   end
@@ -68,6 +76,6 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:title, :state, :preparation_time_min, :application_time_min, :feature, :difficulty, :description, :cost, :category, tag_ids: [], recipe_photos_attributes: [:photo] )
+    params.require(:recipe).permit(:title, :state, :preparation_time_min, :application_time_min, :feature, :difficulty, :description, :cost, :category, tag_ids: [], recipe_photos: [:photo] )
   end
 end
