@@ -53,15 +53,28 @@ Make sure that the ghassoul is applied evenly over the skin", tags: [oilys, body
 Recipe.create!(state: "published", user_id: hamida.id, title: 'Henna with 30 herbs', category: 'Hair', difficulty: 3, cost: 2, description: "Put henna and sugar into a bowl and mix lemon juice and essential oils into the powder/sugar until you reach a thick mashed potato consistency. ...
 Cover with plastic wrap, pressing the wrap down on top of the henna until it touches.
 Set aside to await dye release.", tags: [coloring, dryh, treatment])
+Recipe.create!(state: "published",  user_id: hamid.id,title: "Avocado mask", category:'Dry skin', difficulty: 1, cost: 2, description: "Mix one tablespoon of raw honey or Manuka honey, 2 tablespoons of plain yogurt. Apply to face and let sit for 15-20 minutes. Use a warm washcloth to wipe off", tags: [moisturizing, face, dry])
+Recipe.create!(state: "published", user_id: hamid.id, title: 'Indigo dye ', category: 'Hair', difficulty: 1, cost: 1, description: "The ghassoul wrap is done by applying thin layers of warm ghassoul combined with argan oil on the whole body.
+If you do it at home, in the palm of your hand, take the Rassoul and add some argan oil drop before application.
+Make sure that the ghassoul is applied evenly over the skin.
+Make sure that the ghassoul is applied evenly over the skin", tags: [oilys, body])
+Recipe.create!(state: "published", user_id: hamida.id, title: 'Lemon and Baking soda toothpaste', category: 'Teeth', difficulty: 1, cost: 1, description: "Put henna and sugar into a bowl and mix lemon juice and essential oils into the powder/sugar until you reach a thick mashed potato consistency. ...
+Cover with plastic wrap, pressing the wrap down on top of the henna until it touches.
+Set aside to await dye release.", tags: [coloring, dryh, treatment])
+Recipe.create!(state: "published", user_id: hamida.id, title: 'Argan oil cream', category: 'Face', difficulty: 1, cost: 2, description: "Put henna and sugar into a bowl and mix lemon juice and essential oils into the powder/sugar until you reach a thick mashed potato consistency. ...
+Cover with plastic wrap, pressing the wrap down on top of the henna until it touches.
+Set aside to await dye release.", tags: [coloring, dryh, treatment])
 
-photo_urls = Dir.entries("app/assets/images/seed").select do |entry| 
+
+
+photo_urls = Dir.entries("app/assets/images/seed").select do |entry|
 	File.file?("app/assets/images/seed/#{entry}")
 end.map  do |image_name|
   Cloudinary::Uploader.upload("app/assets/images/seed/#{image_name}")
-	end.map do |element| 
+	end.map do |element|
 	"#{element["resource_type"]}/#{element["type"]}/v#{element["version"]}/#{element['public_id']}.#{element['format']}"
-	end 
- 
+	end
+
 
 Recipe.find_each do |recipe|
   rp = RecipePhoto.new(recipe: recipe)
@@ -76,5 +89,15 @@ filepath = "ingredients.csv"
 CSV.foreach(filepath) do |row|
   Ingredient.create!(name: row.first)
 end
+
+Recipe.find_each do  |recipe|
+  5.times do
+    IngredientRecipe.create!(
+      recipe: recipe,
+      ingredient:Ingredient.all.sample,
+      quantity: 20)
+  end
+end
+
 
 puts 'Finished!'
