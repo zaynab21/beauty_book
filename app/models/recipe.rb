@@ -10,7 +10,7 @@ class Recipe < ApplicationRecord
   has_many :reviews, dependent: :destroy
   validates_associated :tags
   validates :title, presence: true
-  validates :state, presence:true
+  validates :state, presence: true
   #inclusion
   pg_search_scope :global_search,
     against: [ :title, :difficulty, :cost, :category, :description ],
