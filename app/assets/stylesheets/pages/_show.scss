@@ -3,7 +3,17 @@
   //#32B796
 }
 
-.recipe-title {
+.title-ingredients {
+  text-align: center;
+  margin: 40px;
+  // font-size: 50px;
+  font-size: 2.775rem;
+  line-height: 28px;
+  font-weight: bolder;
+  font-style: courier;
+}
+
+.recipe-titles {
   text-align: center;
   margin: 1rem 0 .75rem;
   // font-size: 50px;
@@ -12,6 +22,7 @@
   font-weight: bolder;
   font-style: courier;
 }
+
 
 .ingredient-content {
   background: white;
