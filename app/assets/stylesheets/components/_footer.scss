@@ -1,3 +1,10 @@
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .footer {
   background: white;
   display: flex;
@@ -7,9 +14,7 @@
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
   clear:both;
-  // bottom:0;
-  // width: 100%;
-  // position: sticky;
+  flex-shrink: 0;
 }
 .sm-links {
   display: flex;
