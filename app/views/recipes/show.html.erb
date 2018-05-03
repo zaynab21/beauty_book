@@ -2,11 +2,10 @@
   <div class="container-content ">
     <div class="row">
       <div class="col-xs-12 col-sm-07">
-        <h2 class="recipe-title"><%= @recipe.title %></h2>
-        <h3><strong>By</strong> <%= @recipe.user.username %></h3>
+        <h2 class="recipe-title"><%= @recipe.title.capitalize %></h2>
         <div class="recipe-summary row">
           <div class="recipe-attributes col-xs-12 col-sm-7">
-          <%=link_to @recipe.user.username, user_path(@recipe.user), class: "btn"%>
+          <h3 class= "btn btn-user"><%=link_to "By #{@recipe.user.username.capitalize}", user_path(@recipe.user)%></h3>
             <div class="ratings">
             <!-- <h4>Rating</h4> -->
               <div class='padded-1em'>
@@ -21,7 +20,6 @@
             </div>
             <div class="general-info">
               <ul class="list-inline infos">
-                <li id="feature"><%= @recipe.feature %></li>
                 <li id="dificulty"><Difficulty></li>
                   <% 3.times do |i|  %>
                   <% if i < @recipe.difficulty %>
@@ -48,8 +46,15 @@
                         <h4>Application time</h4>
                         <p class="time text-center"> <%=@recipe.application_time_min %></p>
                       </div>
+                      <div class="row">
+                        <div class="col-xs-12 col-sm-08">
+                            <% @recipe.tags.each do |tag|%>
+                          <p class="tag"> <%=tag.name %></p>
+                          <% end %>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
 
               </div>
               <div class="recipe-illustration col-xs-12 col-sm-5">
@@ -83,15 +88,6 @@
           <div class="description-content">
             <h3 class="">Description</h3>
             <p><%= simple_format(@recipe.description)%></p>
-          </div>
-          <div class="row">
-          <div class="col-xs-12 col-sm-08">
-            <ul class="list-inline">
-            <% @recipe.tags.each do |tag|%>
-              <li class="tag"> <%=tag.name %></li>
-            </ul>
-             <% end %>
-          </div>
           </div>
           </div>
 

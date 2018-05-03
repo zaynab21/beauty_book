@@ -9,7 +9,4 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
   validates :email, uniqueness: true
   validates :age, numericality: { only_integer: true }, allow_blank: true
-  # validates :skin_type, inclusion:
-  # validates :skin_type, inclusion:
-
 end

@@ -38,18 +38,19 @@ normalh = Tag.create!(name: "Normal hair")
 face = Tag.create!(name: "Face")
 body = Tag.create!(name: "Body")
 nail = Tag.create!(name: "Nail")
-lips = Tag.create!(name: "Nail")
+lips = Tag.create!(name: "lips")
 coloring = Tag.create!(name: "Coloring")
 treatment = Tag.create!(name: "treatment")
+fall = Tag.create!(name: "Hair fall")
 
 
 puts 'Creating recipes...'
-Recipe.create!(state: "pending",  user_id: hamid.id,title: "Honey mask", feature: 'Moisturizing', category:'Dry skin', difficulty: 1, cost: 2, description: "Mix one tablespoon of raw honey or Manuka honey, 2 tablespoons of plain yogurt. Apply to face and let sit for 15-20 minutes. Use a warm washcloth to wipe off", tags: [moisturizing, face, dry])
-Recipe.create!(state: "pending", user_id: hamid.id, title: 'Ghassoul body Wrap ', feature: 'Purifying', category: 'Body', difficulty: 1, cost: 1, description: "The ghassoul wrap is done by applying thin layers of warm ghassoul combined with argan oil on the whole body.
+Recipe.create!(state: "pending",  user_id: hamid.id,title: "Honey mask", category:'Dry skin', difficulty: 1, cost: 2, description: "Mix one tablespoon of raw honey or Manuka honey, 2 tablespoons of plain yogurt. Apply to face and let sit for 15-20 minutes. Use a warm washcloth to wipe off", tags: [moisturizing, face, dry])
+Recipe.create!(state: "pending", user_id: hamid.id, title: 'Ghassoul body Wrap ', category: 'Body', difficulty: 1, cost: 1, description: "The ghassoul wrap is done by applying thin layers of warm ghassoul combined with argan oil on the whole body.
 If you do it at home, in the palm of your hand, take the Rassoul and add some argan oil drop before application.
 Make sure that the ghassoul is applied evenly over the skin.
 Make sure that the ghassoul is applied evenly over the skin", tags: [oilys, body])
-Recipe.create!(state: "pending", user_id: hamida.id, title: 'Henna with 30 herbs',  feature: 'Coloring',   category: 'Hair', difficulty: 3, cost: 2, description: "Put henna and sugar into a bowl and mix lemon juice and essential oils into the powder/sugar until you reach a thick mashed potato consistency. ...
+Recipe.create!(state: "pending", user_id: hamida.id, title: 'Henna with 30 herbs', category: 'Hair', difficulty: 3, cost: 2, description: "Put henna and sugar into a bowl and mix lemon juice and essential oils into the powder/sugar until you reach a thick mashed potato consistency. ...
 Cover with plastic wrap, pressing the wrap down on top of the henna until it touches.
 Set aside to await dye release.", tags: [coloring, dryh, treatment])
 
