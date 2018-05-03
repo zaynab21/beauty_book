@@ -5,4 +5,17 @@
 .meh {
 	margin: 30px auto;
 	padding: 30px 50px;
+	.btn {
+		width: 100%;
+		margin-bottom: 10px;
+	}
+}
+
+.ingredient-wrapper {
+	padding: 30px 50px;
+	margin: 30px auto;
+	background: orange;
+	display: flex;
+	justify-content: space-between;
+	align-text: center;
 }

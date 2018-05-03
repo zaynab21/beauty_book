@@ -1,12 +1,29 @@
 <div class="container">
-	<% @ing_recipes.each do |ing_recipe| %>
-	<div class="card-ingredient">
-		<h2><%= ing_recipe.ingredient.name %></h2>
-		<h3><%= ing_recipe.quantity %></h3>
-	</div>
-	<% end %>
 	<div class="row">
-    <div class="col-xs-12 col-sm-8">
+		<div class="col-xs-12 col-sm-8">
+		  <div class="ingredient-wrapper">
+		  	<div>
+		    <h2>Title: </h2>
+			<h2>Category:</h2>
+			</div>
+			<div>
+				<h1><%= @recipe.title.capitalize %></h1>
+				<h1><%= @recipe.category %></h1>
+			</div>
+		  </div>
+		  <h2>My ingredients: </h2>
+		 <% @ing_recipes.each do |ing_recipe| %>
+		<div class="card-ingredient">
+			<h2><%= ing_recipe.ingredient.name %></h2>
+			<h3><%= ing_recipe.quantity %>g</h3>
+		</div>
+		<% end %>
+		</div>
+
+   
+  	<div class="meh col-xs-12 col-sm-4">
+		<%= link_to "Save and leave", mypage_path, class: "btn btn-help" %> <br>
+		<%= link_to "continue", edit_recipe_path(@recipe),class: "btn btn-primary" %>
       <div class="container-login">
         <h2>Add new ingredient</h2>
 
@@ -21,10 +38,6 @@
         </div>
         <% end %>
       </div>
-    </div>
-  	<div class="meh col-xs-12 col-sm-4">
-		<%= link_to "Save and leave", mypage_path, class: "btn btn-help" %> <br>
-		<%= link_to "continue", edit_recipe_path(@recipe),class: "btn btn-primary" %>
 	</div>
 	</div>
 </div>
