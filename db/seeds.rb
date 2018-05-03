@@ -54,10 +54,14 @@ Recipe.create!(state: "pending", user_id: hamida.id, title: 'Henna with 30 herbs
 Cover with plastic wrap, pressing the wrap down on top of the henna until it touches.
 Set aside to await dye release.", tags: [coloring, dryh, treatment])
 
-photo_urls = [
-  "image/upload/v1525272112/hqjvti0zzzvfmxmz6dyk.jpg",
- "image/upload/v1525272114/gyx0idbio1exj9zlnk1c.png"
-]
+photo_urls = Dir.entries("app/assets/images/seed").select do |entry| 
+	File.file?("app/assets/images/seed/#{entry}")
+end.map  do |image_name|
+  Cloudinary::Uploader.upload("app/assets/images/seed/#{image_name}")
+	end.map do |element| 
+	"#{element["resource_type"]}/#{element["type"]}/v#{element["version"]}/#{element['public_id']}.#{element['format']}"
+	end 
+ 
 
 Recipe.find_each do |recipe|
   rp = RecipePhoto.new(recipe: recipe)
@@ -72,4 +76,5 @@ filepath = "ingredients.csv"
 CSV.foreach(filepath) do |row|
   Ingredient.create!(name: row.first)
 end
+
 puts 'Finished!'
