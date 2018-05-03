@@ -2,12 +2,11 @@
 <div class="container">
   <div class="row">
 
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+    <div class="col-xs-12 col-sm-7 col-sm-offset-3">
       <div class="form-recipe">
         <h2>Edit recipe</h2>
         <%= simple_form_for @recipe, url: moderators_recipe_path(@recipe)  do |f| %>
         <%= f.input :title %>
-        <%= f.input :feature %>
         <div class="row">
           <div class="col-xs-6">
             <%= f.input :cost, collection: [1, 2, 3] %>
@@ -18,14 +17,32 @@
         </div>
         <%= f.input :category %>
         <%= f.input :description %>
-        <%= f.input :tag_ids, as: :check_boxes, collection:  Tag.all, label_method: :name, value_method: :id %>
+        <div class="form-group check_boxes optional recipe_tag_ids">
+          <legend class="col-form-label pt-0">Tags</legend>
+          <input type="hidden" name="recipe[tag_ids][]" value="" />
+          <div class="tag-choices">
+            <% Tag.all.each do |tag| %>
+              <input class="hidden" type="checkbox" value="<%= tag.id %>" name="recipe[tag_ids][]" id="recipe_tag_ids_<%= tag.id %>" />
+              <label class="tag-choice" for="recipe_tag_ids_<%= tag.id %>"><%= tag.name %></label>
+            <% end %>
+          </div>
+        </div>
         <%= f.simple_fields_for :recipe_photos do |p| %>
         <%= p.input :photo %>
         <% end %>
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <div class="col-xs-4">
         <%= f.submit 'Publish', name: "button_action", value: "Publish", class: "btn btn-success" %>
+            </div>
+            <div class="col-xs-4">
         <%= f.submit 'Decline', name: "button_action", value: "Decline", class: "btn btn-danger" %>
-        <%= f.submit 'Keep pending', class: "btn btn-primary" %>
-        <%= f.button :submit, class: "btn btn-success" %>
+            </div>
+            <div class="col-xs-4">
+              <%= f.submit 'Keep pending', class: "small-link" %>
+            </div>
+        </div>
+        </div>
       <% end %>
       </div>
     </div>

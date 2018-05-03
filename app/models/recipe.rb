@@ -13,7 +13,7 @@ class Recipe < ApplicationRecord
   validates :state, presence:true
   #inclusion
   pg_search_scope :global_search,
-    against: [ :title, :feature, :difficulty, :cost, :category, :description ],
+    against: [ :title, :difficulty, :cost, :category, :description ],
     associated_against: {
       tags: [ :name ]
     },
