@@ -41,7 +41,7 @@
       <div class="card-recipe">
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-6">
-            <div class="card" >
+            <div class="card">
               <% if recipe.recipe_photos.first != nil %>
                 <%= cl_image_tag recipe.recipe_photos.first.photo, crop: :fill, class: "card-photos" %>
               <% end %>

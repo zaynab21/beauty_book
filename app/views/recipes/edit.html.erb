@@ -2,15 +2,15 @@
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
       <div class="form-recipe">
-        <h2>edit recipe</h2>
+        <h2>Edit recipe</h2>
         <%= simple_form_for @recipe do |f| %>
         <%= f.input :title %>
         <div class="row">
           <div class="col-xs-6">
-            <%= f.input :cost, collection: [1, 2, 3] %>
+            <%= f.input :cost, collection: [[1, "Affordable"], [2, "Standard"], [3, "Pricey"]], label_method: :second, value_method: :first %>
           </div>
           <div class="col-xs-6">
-            <%= f.input :difficulty, collection: [1, 2, 3] %>
+            <%= f.input :difficulty, collection: [[1, "Easy"], [2, "Medium"], [3, "Difficult"]], label_method: :second, value_method: :first %>
           </div>
         </div>
         <div class="row">
