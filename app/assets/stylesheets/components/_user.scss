@@ -8,6 +8,7 @@
   color: #808285;
   box-sizing: border-box;
   margin-bottom: 20px;
+  margin-top: 35px;
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
   flex: 1 1 auto;
 }
@@ -65,17 +66,6 @@
   right: 15px;
 }
 
-.basic-infos {
-  position: absolute;
-  bottom: 15px;
-  left: 160px;
-    p{
-      margin-left: 15px;
-      margin-top: 0px;
-      margin-bottom: 0;
-    }
-}
-
 .user-description {
   background-color: #fff;
   border-radius: 10px;
@@ -83,14 +73,17 @@
   height: auto;
 }
 
-
 .box {
   padding: 6px;
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
   background-color: #E4E3E3;
   border-radius: 6px;
   margin-right: 12px;
+  margin-left: 30px;
   flex: 1 1 auto;
+  font-size: 16px;
+  font-weight: lighter;
+
   }
 
 .line {

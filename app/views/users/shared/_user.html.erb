@@ -1,77 +1,94 @@
+<div class="user">
+ <div class="row">
+  <div class="col-xs-12 col-sm-10 col-sm-offset-1">
 
-<div class="header-body user-container">
-  <div class="header-image"></div>
-  <div class="header-infos">
-    <div class="avatar-user">
-      <% if current_user.photo != nil %>
-      <%= cl_image_tag current_user.photo, crop: :fill %>
-      <% end %>
+    <div class="header-body user-container">
+      <div class="header-image"></div>
+      <div class="header-infos">
+        <div class="avatar-user">
+          <% if current_user.photo != nil %>
+          <%= cl_image_tag current_user.photo, crop: :fill %>
+          <% end %>
+        </div>
+        <div class="info-profil">
+          <div id="username"><%= @user.username.capitalize %></div>
+        </div>
+        <div class="sm-links sm">
+          <a href="#"><i class="fa fa-facebook"></i></a>
+          <a href="#"><i class="fa fa-pinterest"></i></a>
+          <a href="#"><i class="fa fa-instagram"></i></a>
+        </div>
+      </div>
     </div>
-    <div class="info-profil">
-      <div id="username"><%= @user.username.capitalize %></div>
-      <!-- <div class="basic-infos">
-        <p>@user.city and country</p>
-        <p>@user.website</p>
-      </div> -->
+
+    <div class="user-description user-container">
+
+      <div class="row line identity">
+        <div class="icon">
+          <%= image_tag "id-card.png" %>
+        </div>
+        <div class="box ">
+          <% if @user.first_name != nil && @user.last_name != nil %>
+          <%= @user.username.capitalize %>'s name is <%=@user.first_name %> <%=@user.last_name %>
+          <% else %>
+          <%= @user.username.capitalize %>'s name is unknown
+          <% end %>
+        </br>
+          <% if current_user.age != nil %>
+          <%= @user.username.capitalize %> is <%=@user.age %>
+          <% else %>
+          <%= @user.username.capitalize %>'s age is unknown
+          <% end %>
+        </div>
+      </div>
+
+    <div class="row line cosmetic-info">
+      <div class="icon">
+        <%= image_tag "hair.png" %>
+      </div>
+      <div class="box">
+        <% if @user.skin_type != nil %>
+        <%= @user.username.capitalize %> has <%= @user.skin_type %>
+        <% else %>
+        <%= @user.username.capitalize %>'s skin type is unknown
+        <% end %>
+        </br>
+        <% if @user.hair_type != nil %>
+        <%= @user.username.capitalize %> has <%= @user.hair_type %>
+        <% else %>
+        <%= @user.username.capitalize %>'s hair type is unknown
+        <% end %>
+      </div>
     </div>
-    <div class="sm-links sm">
-      <a href="#"><i class="fa fa-facebook"></i></a>
-      <a href="#"><i class="fa fa-pinterest"></i></a>
-      <a href="#"><i class="fa fa-instagram"></i></a>
+
+    <div class="row line description-info">
+      <div class="icon">
+        <%= image_tag "user.png" %>
+      </div>
+      <div class="box ">
+        <% if @user.description != nil %>
+        <%= @user.description %>
+        <% else %>
+        No description about <%= @user.username.capitalize %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="row line description-info">
+      <div class="icon">
+        <%= image_tag "wash.png" %>
+      </div>
+      <div class="box ">
+        <% if @user.description != nil %>
+        <%= @user.description %>
+        <% else %>
+        No information about <%= @user.username.capitalize %>'s beauty routine
+        <% end %>
+      </div>
     </div>
   </div>
+
 </div>
-
-<div class="user-description user-container">
-
-  <div class="row line identity">
-    <div class=" icon">
-      <%= image_tag "id.png" %>
-    </div>
-    <div class="box ">
-      <% if @user.first_name != nil && @user.last_name != nil %>
-      <%= @user.username %>'s name is <%=@user.first_name %> <%=@user.last_name %>
-      <% else %>
-      <%= @user.username %>'s name is unknown
-      <% end %>
-      <% if current_user.age != nil %>
-      <%= @user.username %> is <%=@user.age %>
-      <% else %>
-      <%= @user.age %>'s name is unknown
-      <% end %>
-    </div>
-  </div>
-
-  <div class="row line cosmetic-info">
-    <div class="icon">
-      <%= image_tag "hair.png" %>
-    </div>
-    <div class="box">
-      <% if @user.skin_type != nil %>
-      <%= @user.username %> has <%= @user.skin_type %>
-      <% else %>
-      <%= @user.username %>'s skin type is unknown
-      <% end %>
-      <% if @user.hair_type != nil %>
-      <%= @user.username %> has <%= @user.hair_type %>
-      <% else %>
-      <%= @user.username %>'s hair type is unknown
-      <% end %>
-    </div>
-  </div>
-
-  <div class="row line description-info">
-    <div class="icon">
-      <%= image_tag "hair.png" %>
-    </div>
-    <div class="box ">
-      <% if @user.description != nil %>
-      <%= @user.description %>
-      <% else %>
-      No description about <%= @user.username %>
-      <% end %>
-    </div>
-  </div>
-
+</div>
 </div>
 
